@@ -19,8 +19,8 @@ int main()
     int i;
     int sum = 0;
     double avg = 0;
-  //  double gavgPRE = 1;
-  //  double gavg = 0;
+    double gavgPRE = 1;
+    double gavg = 0;
      
     // Opening file in reading mode
     fileopen = fopen("random.txt", "r");
@@ -39,13 +39,13 @@ int main()
 	printf("Value is: %d\n\n", numberArray[i]);
 	sum = sum + numberArray[i];
 	avg = sum/20;
-//	gavgPRE = (gavgPRE*numberArray[i]);
-//	gavg = pow(gavgPRE,0.05);
+	gavgPRE = (gavgPRE*numberArray[i]);
+	gavg = pow(gavgPRE,0.05);
 	
     }
 	printf("Sum = %i\n",sum);//print out of sum
 	printf("Average = %f\n",avg);//print out of average
-//	printf("Geometric Average = %f\n",gavg);
+	printf("Geometric Average = %f\n",gavg);
 
     fclose(fileopen);
 
