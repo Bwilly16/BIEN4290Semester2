@@ -27,10 +27,12 @@ int main()
     fileopen = fopen("random.txt", "r");
     out_file = fopen("MathOut.csv", "w"); // write only
  
-    if (NULL == fileopen) {
+    if (NULL == fileopen)
+    {
         printf("file can't be opened \n");
     } 
-    else{
+    else
+    {
 	    printf("File opened successfully!\n");
     }
    
