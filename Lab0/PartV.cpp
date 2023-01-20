@@ -14,6 +14,7 @@ int main()
 {
 //Variables
     FILE* fileopen;
+    FILE *out_file;
     char ch;
     int numberArray[20];
     int i;
@@ -24,6 +25,7 @@ int main()
      
     // Opening file in reading mode
     fileopen = fopen("random.txt", "r");
+    out_file = fopen("MathOut.csv", "w"); // write only
  
     if (NULL == fileopen) {
         printf("file can't be opened \n");
@@ -43,9 +45,11 @@ int main()
 	gavg = pow(gavgPRE,0.05);
 	
     }
-	printf("Sum = %i\n",sum);//print out of sum
-	printf("Average = %f\n",avg);//print out of average
-	printf("Geometric Average = %f\n",gavg);
+	fprintf(out_file,"Sum = %i, ",sum);//print out of sum
+	fprintf(out_file,"Average = %f, ",avg);//print out of average
+	fprintf(out_file,"Geometric Average = %f\n",gavg);
+
+	
 
     fclose(fileopen);
 
