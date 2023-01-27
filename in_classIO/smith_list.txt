@@ -1,0 +1,8 @@
+total 4
+-rw------- 1 wilichb wilichb  0 Jan 25 11:10 agent_smith
+-rw-rw-r-- 1 wilichb wilichb 90 Jan 25 11:09 bwilichowski_basicio.sh
+lrwxrwxrwx 1 wilichb wilichb 11 Jan 25 11:10 me -> agent_smith
+lrwxrwxrwx 1 wilichb wilichb 11 Jan 25 11:10 me_me -> agent_smith
+lrwxrwxrwx 1 wilichb wilichb 11 Jan 25 11:10 me_too -> agent_smith
+-rw-rw-r-- 1 wilichb wilichb  0 Jan 25 11:13 smith_list
+-rw-rw-r-- 1 wilichb wilichb  0 Jan 25 11:14 smith_list.txt
