@@ -25,17 +25,17 @@ fi
 
 input='/home/wilichb/good_movies.txt';
 
-movie="The Big Lebowski";
+movie='The Big Lebowski';
+declare temp;
 
 while IFS= read line
     do
-        if [ $line = $movie ] 
-            then
-            echo $movie
-        else
-            echo "You dont have a favorite movie";
+        if [ "$line" = "$movie" ] 
+        then 
+            temp="$movie" 
     fi
 done < $input
+echo "My favorite movie on the list is" "$temp"
 
 
     
