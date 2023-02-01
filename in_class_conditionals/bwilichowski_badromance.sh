@@ -23,6 +23,21 @@ else
 fi
 
 
+input='/home/wilichb/good_movies.txt';
+
+movie="The Big Lebowski";
+
+while IFS= read line
+    do
+        if [ $line = $movie ] 
+            then
+            echo $movie
+        else
+            echo "You dont have a favorite movie";
+    fi
+done < $input
+
+
     
 
 
