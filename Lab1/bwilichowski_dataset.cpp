@@ -10,6 +10,7 @@ Dataset::myDataset::myDataset(std::string filestats){
     this->file_name = filestats;
 }
 
+
 void Dataset::myDataset::load_dataset(){
     std::ifstream listStream;//could call the file here
     std::string red, orange, yellow, green, blue;//strings to hold columns
@@ -39,7 +40,6 @@ void Dataset::myDataset::load_dataset(){
         //std::cout << HeaderList[i] << std::endl; //this worked
     }
         
-    
 
         //loads columns into col vector
              while(getline(listStream, line)){
@@ -117,7 +117,8 @@ void Dataset::myDataset::load_dataset(){
                 
             };
 
-            //temp = this->cols;
+            temp = this->cols;
+       
             
         //    cols[HeaderList[0]] = headhold1; //first header (date)
         //    cols[HeaderList[1]] = headhold2; //second header ()
