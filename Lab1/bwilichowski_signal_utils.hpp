@@ -7,18 +7,24 @@ Class: BIEN4290
 #ifndef VARNAME
 #define VARNAME
 
+#include "bwilichowski_dataset.hpp"
+
 #include <math.h>
 #include <vector>
 #include <iostream>
 #include <fstream>
 
 namespace SignalUtils{ //namespace
-    //class name (constructor matches namespace)
-    class mySignalUtils{
+    class mySignalUtils{//class name (constructor matches namespace)
         public: 
-            static int peak_value(void); //unsure what will be passed into this function yet
-            static char cor_loc(void); //either do the locations above or make a new function, gonna return a location (char)
+            mySignalUtils();//constructor
 
+            static int peak_value(std::unordered_map<std::string, std::vector<float>>){
+                
+            } 
+            
     };
 }
+
+
 #endif
