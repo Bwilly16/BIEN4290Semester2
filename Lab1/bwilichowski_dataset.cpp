@@ -45,44 +45,47 @@ void Dataset::myDataset::load_dataset(){
              while(getline(listStream, line)){
                 std::stringstream sstream1(line);
                 getline(sstream1, line, ',');
-                // if(line.length() != 0){
-                //     col.push_back(line);
-                // }
-                // else{
-                //     //col.push_back(isnan(NAN));
-                // }
+                if(line.length() != 0){
+                        // strtok to remove -
+                        // std::stof(line) on the dehyphenated date
+
+                    col.push_back(std::stof(line));
+                }
+                else{
+                    //col.push_back(isnan(NAN));
+                }
 
                 getline(sstream1, red, ',');
-                // if(red.length() == 0){
-                //     //hold1.push_back(std::numeric_limits<double>::quiet_NaN());
-                // }
-                // else{
-                //      hold1.push_back(red);
-                // }
+                if(red.length() != 0){
+                    hold1.push_back(std::stof(line));
+                }
+                else{
+                     hold1.push_back(std::numeric_limits<float>::quiet_NaN());
+                }
 
                 getline(sstream1, orange, ',');
-                // if(orange.length() == 0){
-                //     //hold2.push_back(std::numeric_limits<double>::quiet_NaN());
-                // }
-                // else{
-                //      hold2.push_back(orange);
-                // }
+                if(orange.length() == 0){
+                       hold2.push_back(std::stof(line));
+                }
+                else{
+                     hold2.push_back(std::numeric_limits<float>::quiet_NaN());
+                }
                 
                 getline(sstream1, yellow, ',');
-                // if(yellow.length() == 0){
-                //     //hold3.push_back(std::numeric_limits<double>::quiet_NaN());
-                // }
-                // else{
-                //      hold3.push_back(yellow);
-                // }
+                if(yellow.length() == 0){
+                        hold3.push_back(std::stof(line));
+                }
+                else{
+                     hold3.push_back(std::numeric_limits<float>::quiet_NaN());
+                }
                 
                 getline(sstream1, green, ',');
-                // if(green.length() == 0){
-                //     //hold4.push_back(std::numeric_limits<double>::quiet_NaN());
-                // }
-                // else{
-                //      hold4.push_back(green);
-                // }          
+                if(green.length() == 0){
+                    hold4.push_back(std::stof(line));
+                }
+                else{
+                     hold4.push_back(std::numeric_limits<float>::quiet_NaN());
+                }       
             }
             
 
@@ -107,26 +110,19 @@ void Dataset::myDataset::load_dataset(){
                 //std::cout << hold4.at(n) << std::endl;
             }
             
-            std::unordered_map<std::string, std::vector<float>> temp = 
-            {
-                {HeaderList[0], col},
-                {HeaderList[1], hold1},
-                {HeaderList[2], hold2},
-                {HeaderList[3], hold3},
-                {HeaderList[4], hold4}
-                
-            };
+            cols[HeaderList[0]] = col; //first header (date)
+            cols[HeaderList[1]] = hold1; //second header ()
+            cols[HeaderList[2]] = hold2; //third header ()
+            cols[HeaderList[3]] = hold3; //fourth header ()
+            cols[HeaderList[4]] = hold4; //fifth header ()
 
-            temp = this->cols;
-       
-            
-        //    cols[HeaderList[0]] = headhold1; //first header (date)
-        //    cols[HeaderList[1]] = headhold2; //second header ()
-        //    cols[HeaderList[2]] = headhold3; //third header ()
-        //    cols[HeaderList[3]] = headhold4; //fourth header ()
-        //    cols[HeaderList[4]] = headhold5; //fifth header ()
-                            
+        // cols[HeaderList[0]][10];//accessing the 10th index of headerlist 0                    
 }
+
+std::unordered_map<std::string, std::vector<float>> Dataset::myDataset::GetMap(){
+    return this->cols;
+}
+
             
 
 

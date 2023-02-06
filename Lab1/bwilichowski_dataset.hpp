@@ -20,6 +20,7 @@ namespace Dataset{ //namespace
         public:
             myDataset(std::string file); //constructor def. 
             void load_dataset();  
+            std::unordered_map<std::string, std::vector<float>> GetMap();
            
 
         private:
