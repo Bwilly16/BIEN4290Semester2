@@ -25,6 +25,8 @@ void preproc::mypreproc::readfiles(){
     std::ifstream file4(this->arg4);
     std::ifstream file5(this->arg5);
 
+    int genenum = this->arg6;//sets genenum equal to the requested amount
+
 //check if each file exists
     //file1
     if(file1){
@@ -70,6 +72,9 @@ void preproc::mypreproc::readfiles(){
       std::cout<< "ERROR: file doesn't exist. EXITING PROGRAM" << std::endl;
       exit(1);
     }
+
+    //check if gene # is greater than number of data points in file
+    // do this eventually 
 
 }
 
