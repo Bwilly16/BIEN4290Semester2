@@ -37,7 +37,3 @@ std::vector<float> multstuff(int c, std::vector<float> array4){
     }
     return multarray;
 }
-
-int main(void){
-    return 0;
-}
