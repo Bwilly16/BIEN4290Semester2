@@ -17,8 +17,7 @@ void Dataset::myDataset::load_dataset(){
     std::string header, line; //identifiers to hold what is being read
     std::array<std::string, 5> HeaderList; //holds all header names in an array
     std::vector<float> col, hold1, hold2, hold3, hold4; //holds column values into these vectors
-    std::vector<float> headhold1, headhold2, headhold3, headhold4, headhold5, colhold1, colhold2, colhold3, colhold4, colhold5; //if used, holding keys for header names
-    std::numeric_limits<double>::quiet_NaN(); 
+    //std::numeric_limits<double>::quiet_NaN(); 
     int i = 0;
 
     //load in the file
@@ -37,7 +36,7 @@ void Dataset::myDataset::load_dataset(){
     for(i=0;i<5;i++){
         getline(sstream, header, ',');
         HeaderList[i] = header;
-        //std::cout << HeaderList[i] << std::endl; //this worked
+        std::cout << HeaderList[i] << std::endl; //this worked
     }
         
 
@@ -119,9 +118,9 @@ void Dataset::myDataset::load_dataset(){
         // cols[HeaderList[0]][10];//accessing the 10th index of headerlist 0                    
 }
 
-std::unordered_map<std::string, std::vector<float>> Dataset::myDataset::GetMap(){
-    return this->cols;
-}
+//std::unordered_map<std::string, std::vector<float>> Dataset::myDataset::GetMap(){
+  //  return this->cols;
+//}
 
             
 

@@ -20,7 +20,7 @@ namespace SignalUtils{ //namespace
             mySignalUtils();//constructor
 
             static int peak_value(std::unordered_map<std::string, std::vector<float>>){
-                
+                return 0;
             } 
             
     };

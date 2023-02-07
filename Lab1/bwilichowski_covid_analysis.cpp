@@ -7,7 +7,7 @@ int main(){
     
     Dataset::myDataset blue("covid/Canada_covid_stats.csv");
     blue.load_dataset();
-    holdValue = blue.GetMap();
+   holdValue = blue.GetMap();
 
     SignalUtils::mySignalUtils::peak_value(holdValue);
 
