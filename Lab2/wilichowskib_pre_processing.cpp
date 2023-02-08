@@ -7,25 +7,28 @@ Class: BIEN4290
 
 #include "wilichowskib_pre_processing.hpp"
 
-preproc::mypreproc::mypreproc(std::string a1, std::string a2, std::string a3, std::string a4, std::string a5, int a6){
+preproc::mypreproc::mypreproc(std::string a1, std::string a2, std::string a3, std::string a4){ //, std::string a5, int a6){
     this->arg1 = a1;
     this->arg2 = a2;
     this->arg3 = a3;
     this->arg4 = a4;
-    this->arg5 = a5;
-    this->arg6 = a6;
+    // this->arg5 = a5;
+    // this->arg6 = a6;
 }
 
 void preproc::mypreproc::readfiles(){
 
     //streams for files being read, 6th argument is a integer
-    std::ifstream file1(this->arg1);
-    std::ifstream file2(this->arg2);
-    std::ifstream file3(this->arg3);
-    std::ifstream file4(this->arg4);
-    std::ifstream file5(this->arg5);
+    std::ifstream file1(this->arg1); //red file
+    std::ifstream file2(this->arg2); //red background
+    std::ifstream file3(this->arg3); //green file
+    std::ifstream file4(this->arg4); //green background
+    std::ifstream file5(this->arg5); // file write to
 
     int genenum = this->arg6;//sets genenum equal to the requested amount
+
+    std::string REDhold, GREENhold, RBACKhold, GBACKhold;
+    std::vector<float> REDcol, GREENcol, RBACKcol, GBACKcol;
 
 //check if each file exists
     //file1
@@ -73,6 +76,82 @@ void preproc::mypreproc::readfiles(){
       exit(1);
     }
 
+    //read red file 
+    while(getline(file1, REDhold))
+    {
+      if(REDhold.length() != 0)
+      {
+        REDcol.push_back(std::stof(REDhold));
+      }
+      else
+      {
+        REDcol.push_back(isnan(NAN));
+      }
+
+    }
+    for(uint i=0; i<REDcol.size(); i++)
+    {
+      std::cout << REDcol[i] << std::endl;
+    }
+
+    //read red background file 
+    while(getline(file2, RBACKhold))
+    {
+      //if(RBACKhold.length() < != 0) had this originally
+      if(RBACKhold.length() <= genenum) // if the genenum is larger than the length of file, throw error
+      {
+        RBACKcol.push_back(std::stof(RBACKhold));
+      }
+      else
+      {
+        std::cout << "ERROR: requested number of genes is larger than # of points in file. Enter a smaller number." << std::endl;
+        //RBACKcol.push_back(isnan(NAN));
+      }
+
+    }
+    for(uint i=0; i<genenum; i++)
+    {
+      std::cout << RBACKcol[i] << std::endl;
+    }
+
+    //read green file 
+    while(getline(file3, GREENhold))
+    {
+      if(GREENhold.length() != 0)
+      {
+        GREENcol.push_back(std::stof(GREENhold));
+      }
+      else
+      {
+        GREENcol.push_back(isnan(NAN));
+      }
+
+    }
+    for(uint i=0; i<GREENcol.size(); i++)
+    {
+      std::cout << GREENcol[i] << std::endl;
+    }
+
+
+    //read green background file 
+    while(getline(file4, GBACKhold))
+    {
+      if(GBACKhold.length() != 0)
+      {
+        GBACKcol.push_back(std::stof(GBACKhold));
+      }
+      else
+      {
+        GBACKcol.push_back(isnan(NAN));
+      }
+
+    }
+    for(uint i=0; i<GBACKcol.size(); i++)
+    {
+      std::cout << GBACKcol[i] << std::endl;
+    }
+
+
     //check if gene # is greater than number of data points in file
     // do this eventually 
 
@@ -85,10 +164,10 @@ int main(int argc, char *argv[]){
     std::string argument2 = argv[2]; //name of red background file
     std::string argument3 = argv[3]; //name of green file
     std::string argument4 = argv[4]; //name of green background file
-    std::string argument5 = argv[5]; //name of file being wrote too
-    int argument6 = std::stoi(argv[6]); //number of genes being analyzed
+    // std::string argument5 = argv[5]; //name of file being wrote too
+    // //int argument6 = std::stoi(argv[6]); //number of genes being analyzed
 
-    preproc::mypreproc callconst(argument1, argument2, argument3, argument4, argument5, argument6);
+    preproc::mypreproc callconst(argument1, argument2, argument3, argument4);//, argument5, argument6);
     callconst.readfiles();
 
 

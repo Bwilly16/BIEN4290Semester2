@@ -14,12 +14,14 @@ Class: BIEN4290
 #include <string>
 #include <vector>
 #include <fstream>
+#include <sstream>
+#include <math.h>
 
 namespace preproc{ //namespace
     //class name (constructor matches namespace)
     class mypreproc{
         public:
-           mypreproc(std::string, std::string, std::string, std::string, std::string, int); //constructor def. 
+           mypreproc(std::string, std::string, std::string, std::string); //, std::string, int); //constructor def. 
            void readfiles();
 
         private:
