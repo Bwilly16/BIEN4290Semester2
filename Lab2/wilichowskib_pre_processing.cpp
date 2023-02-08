@@ -79,7 +79,7 @@ void preproc::mypreproc::readfiles(){
 
 
     //read red file 
-    while(getline(file1, REDhold))
+    while(getline(file1, REDhold) && (REDcol.size() >= genenum)) //read until gene num is the same as col size
     {
       if(REDhold.length() != 0)
       {
@@ -87,7 +87,7 @@ void preproc::mypreproc::readfiles(){
       }
       else
       {
-        REDcol.push_back(isnan(NAN));
+        REDcol.push_back(NAN);
       }
 
     }
@@ -95,10 +95,12 @@ void preproc::mypreproc::readfiles(){
     // printing out file into vector based on gene number
     for(uint i=0; i<genenum; i++)
     {
-      if(REDcol.size() <= genenum){
+      if(REDcol.size() >= genenum)
+      {
         std::cout << REDcol[i] << std::endl;
       }
-      else{
+      else
+      {
         std::cout << "ERROR: requested amount of genes is larger than # of genes in file" << std::endl;
       }
     }
@@ -122,10 +124,12 @@ void preproc::mypreproc::readfiles(){
     // printing out file into vector based on gene number
     for(uint i=0; i<genenum; i++)
     {
-      if(RBACKcol.size() <= genenum){
+      if(RBACKcol.size() <= genenum)
+      {
         std::cout << RBACKcol[i] << std::endl;
       }
-      else{
+      else
+      {
         std::cout << "ERROR: requested amount of genes is larger than # of genes in file" << std::endl;
       }
     }
