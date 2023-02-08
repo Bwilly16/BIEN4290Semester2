@@ -7,13 +7,13 @@ Class: BIEN4290
 
 #include "wilichowskib_pre_processing.hpp"
 
-preproc::mypreproc::mypreproc(std::string a1, std::string a2, std::string a3, std::string a4){ //, std::string a5, int a6){
+preproc::mypreproc::mypreproc(std::string a1, std::string a2, std::string a3, std::string a4, std::string a5, int a6){
     this->arg1 = a1;
     this->arg2 = a2;
     this->arg3 = a3;
     this->arg4 = a4;
-    // this->arg5 = a5;
-    // this->arg6 = a6;
+    this->arg5 = a5;
+    this->arg6 = a6;
 }
 
 void preproc::mypreproc::readfiles(){
@@ -76,7 +76,7 @@ void preproc::mypreproc::readfiles(){
       exit(1);
     }
 
-    
+
 
     //read red file 
     while(getline(file1, REDhold))
@@ -180,10 +180,10 @@ int main(int argc, char *argv[]){
     std::string argument2 = argv[2]; //name of red background file
     std::string argument3 = argv[3]; //name of green file
     std::string argument4 = argv[4]; //name of green background file
-    // std::string argument5 = argv[5]; //name of file being wrote too
-    // //int argument6 = std::stoi(argv[6]); //number of genes being analyzed
+    std::string argument5 = argv[5]; //name of file being wrote too
+    int argument6 = std::stoi(argv[6]); //number of genes being analyzed
 
-    preproc::mypreproc callconst(argument1, argument2, argument3, argument4);//, argument5, argument6);
+    preproc::mypreproc callconst(argument1, argument2, argument3, argument4, argument5, argument6);
     callconst.readfiles();
 
 
