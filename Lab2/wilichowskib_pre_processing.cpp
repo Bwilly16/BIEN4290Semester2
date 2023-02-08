@@ -27,40 +27,40 @@ void preproc::mypreproc::readfiles(){
 
     int genenum = this->arg6;//sets genenum equal to the requested amount
 
-    std::string REDhold, GREENhold, RBACKhold, GBACKhold;
-    std::vector<float> REDcol, GREENcol, RBACKcol, GBACKcol;
+    std::string REDhold, GREENhold, RBACKhold, GBACKhold; //holds values while files get read as STRINGS
+    std::vector<float> REDcol, GREENcol, RBACKcol, GBACKcol; // vectors to hold entire contents of each file
 
 //check if each file exists
     //file1
     if(file1){
-      std::cout<<"Red file exists" << std::endl;
+      std::cout<< "Red file exists" << std::endl;
     } 
     else {
-      std::cout<< "ERROR: file doesn't exist. EXITING PROGRAM" << std::endl;
+      std::cout<< "ERROR: red file doesn't exist. EXITING PROGRAM" << std::endl;
       exit(1);
     }
 
     //file2
     if(file2){
-      std::cout<<"Red background file exists" << std::endl;
+      std::cout<< "Red background file exists" << std::endl;
     } 
     else {
-      std::cout<< "ERROR: file doesn't exist. EXITING PROGRAM" << std::endl;
+      std::cout<< "ERROR: red background file doesn't exist. EXITING PROGRAM" << std::endl;
       exit(1);
     }
 
     //file3
     if(file3){
-      std::cout<<"green file exists" << std::endl;
+      std::cout<< "Green file exists" << std::endl;
     } 
     else {
-      std::cout<< "ERROR: file doesn't exist. EXITING PROGRAM" << std::endl;
+      std::cout<< "ERROR: green file doesn't exist. EXITING PROGRAM" << std::endl;
       exit(1);
     }
 
     //file4
     if(file4){
-      std::cout<<"green background file exists" << std::endl;
+      std::cout<< "Green background file exists" << std::endl;
     } 
     else {
       std::cout<< "ERROR: file doesn't exist. EXITING PROGRAM" << std::endl;
@@ -69,12 +69,14 @@ void preproc::mypreproc::readfiles(){
 
     //file5
     if(file5){
-      std::cout<<"file being wrote to exists" << std::endl;
+      std::cout<< "File being written to exists" << std::endl;
     } 
     else {
-      std::cout<< "ERROR: file doesn't exist. EXITING PROGRAM" << std::endl;
+      std::cout<< "ERROR: written file doesn't exist. EXITING PROGRAM" << std::endl;
       exit(1);
     }
+
+    
 
     //read red file 
     while(getline(file1, REDhold))
@@ -89,29 +91,43 @@ void preproc::mypreproc::readfiles(){
       }
 
     }
-    for(uint i=0; i<REDcol.size(); i++)
+
+    // printing out file into vector based on gene number
+    for(uint i=0; i<genenum; i++)
     {
-      std::cout << REDcol[i] << std::endl;
+      if(REDcol.size() <= genenum){
+        std::cout << REDcol[i] << std::endl;
+      }
+      else{
+        std::cout << "ERROR: requested amount of genes is larger than # of genes in file" << std::endl;
+      }
     }
+
 
     //read red background file 
     while(getline(file2, RBACKhold))
     {
-      //if(RBACKhold.length() < != 0) had this originally
-      if(RBACKhold.length() <= genenum) // if the genenum is larger than the length of file, throw error
+      //if(RBACKhold.length() != 0) had this originally
+      if(RBACKhold.length() != 0) // if the genenum is larger than the length of file, throw error
       {
         RBACKcol.push_back(std::stof(RBACKhold));
       }
       else
       {
-        std::cout << "ERROR: requested number of genes is larger than # of points in file. Enter a smaller number." << std::endl;
-        //RBACKcol.push_back(isnan(NAN));
+        RBACKcol.push_back(isnan(NAN));
       }
 
     }
+
+    // printing out file into vector based on gene number
     for(uint i=0; i<genenum; i++)
     {
-      std::cout << RBACKcol[i] << std::endl;
+      if(RBACKcol.size() <= genenum){
+        std::cout << RBACKcol[i] << std::endl;
+      }
+      else{
+        std::cout << "ERROR: requested amount of genes is larger than # of genes in file" << std::endl;
+      }
     }
 
     //read green file 
