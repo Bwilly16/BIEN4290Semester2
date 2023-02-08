@@ -3,8 +3,8 @@ CC = g++
 CFLAGS = -fPIC -Wall -g #-std=c++ll 
 LDFLAGS = 
 LIBS = -lm 
-LIBDIR = $(HOME)/BIEN4290Semester2/Lab2/lib
-INCDIR = $(HOME)/BIEN4290Semester2/Lab2/includes
+LIBDIR = $(HOME)/BIEN4290Semester2/Lab2/lib #dont have these yet, maybe at all??
+INCDIR = $(HOME)/BIEN4290Semester2/Lab2/includes #^^
 EXENAME = vectorTEST
 
 all: wilichowskib_vector_ops.o wilichowskib_pre_processing.o	#//first checks these
