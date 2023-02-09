@@ -1,5 +1,5 @@
 #include "bwilichowski_dataset.hpp"
-#include "bwilichowski_signal_utils.hpp"
+//#include "bwilichowski_signal_utils.hpp"
 
 int main(){
 
@@ -7,9 +7,9 @@ int main(){
     
     Dataset::myDataset blue("covid/Canada_covid_stats.csv");
     blue.load_dataset();
-   holdValue = blue.GetMap();
+    // holdValue = blue.GetMap();
 
-    SignalUtils::mySignalUtils::peak_value(holdValue);
+    // SignalUtils::mySignalUtils::peak_value(holdValue);
 
     return 0;
 }

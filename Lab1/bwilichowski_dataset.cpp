@@ -16,8 +16,8 @@ void Dataset::myDataset::load_dataset(){
     std::string red, orange, yellow, green, blue;//strings to hold columns
     std::string header, line; //identifiers to hold what is being read
     std::array<std::string, 5> HeaderList; //holds all header names in an array
-    std::vector<float> col, hold1, hold2, hold3, hold4; //holds column values into these vectors
-    //std::numeric_limits<double>::quiet_NaN(); 
+    std::vector<std::string> date;
+    std::vector<float> col, hold1, hold2, hold3, hold4; //holds column values into these vectors 
     int i = 0;
 
     //load in the file
@@ -36,22 +36,23 @@ void Dataset::myDataset::load_dataset(){
     for(i=0;i<5;i++){
         getline(sstream, header, ',');
         HeaderList[i] = header;
-        std::cout << HeaderList[i] << std::endl; //this worked
+        //std::cout << HeaderList[i] << std::endl; //this worked
     }
         
-
+        float temp = 0;
+        float temp2 = 0;
         //loads columns into col vector
              while(getline(listStream, line)){
                 std::stringstream sstream1(line);
                 getline(sstream1, line, ',');
+                line.erase(remove(line.begin(), line.end(), '-'), line.end());
                 if(line.length() != 0){
-                        // strtok to remove -
-                        // std::stof(line) on the dehyphenated date
-
-                    col.push_back(std::stof(line));
+                    temp = std::stof(line);
+                    col.push_back(temp);//std::stof(line));
+                    
                 }
                 else{
-                    //col.push_back(isnan(NAN));
+                    col.push_back(std::numeric_limits<float>::quiet_NaN());
                 }
 
                 getline(sstream1, red, ',');
@@ -90,7 +91,9 @@ void Dataset::myDataset::load_dataset(){
 
             // for loops to check if the arrays got printed properly
             for(int j = 0; j<col.size(); j++){
-                //std::cout << col.at(j) << std::endl;
+                std::cout << std::fixed;
+                std::cout << std::setprecision(0);
+                std::cout <<col.at(j) << std::endl;
             }
 
             for(int z = 0; z<hold1.size(); z++){
