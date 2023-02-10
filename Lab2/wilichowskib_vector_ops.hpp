@@ -20,7 +20,9 @@ namespace vectorops{ //namespace
            std::vector<float> sumstuff(std::vector<float>);
            std::vector<float> substuff(std::vector<float>, std::vector<float>);
            std::vector<float> multstuff(int, std::vector<float>);
-  
+           std::vector<float> GreenMean(std::vector<float>);
+           std::vector<float> RedMean(std::vector<float>);
+           std::vector<float> logintensity(std::vector<float>); //also write intensity to arg5 file specified
     };
 }
 

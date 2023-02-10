@@ -6,14 +6,15 @@ Class: BIEN4290
 */
 
 #include "wilichowskib_pre_processing.hpp"
+#include "wilichowskib_vector_ops.hpp"
 
 preproc::mypreproc::mypreproc(std::string a1, std::string a2, std::string a3, std::string a4, std::string a5, int a6){
-    this->arg1 = a1;
-    this->arg2 = a2;
-    this->arg3 = a3;
-    this->arg4 = a4;
-    this->arg5 = a5;
-    this->arg6 = a6;
+    this->arg1 = a1; //red file
+    this->arg2 = a2; //red background file
+    this->arg3 = a3; //green file
+    this->arg4 = a4; //green background file
+    this->arg5 = a5; //file being written to
+    this->arg6 = a6; //number of genes being analyzed
 }
 
 void preproc::mypreproc::readfiles(){
@@ -32,46 +33,56 @@ void preproc::mypreproc::readfiles(){
 
 //check if each file exists
     //file1
-    if(file1){
+    if(file1)
+    {
       std::cout<< "Red file exists" << std::endl;
     } 
-    else {
+    else 
+    {
       std::cout<< "ERROR: red file doesn't exist. EXITING PROGRAM" << std::endl;
       exit(1);
     }
 
     //file2
-    if(file2){
+    if(file2)
+    {
       std::cout<< "Red background file exists" << std::endl;
     } 
-    else {
+    else 
+    {
       std::cout<< "ERROR: red background file doesn't exist. EXITING PROGRAM" << std::endl;
       exit(1);
     }
 
     //file3
-    if(file3){
+    if(file3)
+    {
       std::cout<< "Green file exists" << std::endl;
     } 
-    else {
+    else 
+    {
       std::cout<< "ERROR: green file doesn't exist. EXITING PROGRAM" << std::endl;
       exit(1);
     }
 
     //file4
-    if(file4){
+    if(file4)
+    {
       std::cout<< "Green background file exists" << std::endl;
     } 
-    else {
+    else 
+    {
       std::cout<< "ERROR: file doesn't exist. EXITING PROGRAM" << std::endl;
       exit(1);
     }
 
     //file5
-    if(file5){
+    if(file5)
+    {
       std::cout<< "File being written to exists" << std::endl;
     } 
-    else {
+    else 
+    {
       std::cout<< "ERROR: written file doesn't exist. EXITING PROGRAM" << std::endl;
       exit(1);
     }
@@ -107,7 +118,7 @@ void preproc::mypreproc::readfiles(){
 
 
     //read red background file 
-    while(getline(file2, RBACKhold))
+    while(getline(file2, RBACKhold) && (RBACKcol.size() >= genenum))
     {
       //if(RBACKhold.length() != 0) had this originally
       if(RBACKhold.length() != 0) // if the genenum is larger than the length of file, throw error
@@ -135,7 +146,7 @@ void preproc::mypreproc::readfiles(){
     }
 
     //read green file 
-    while(getline(file3, GREENhold))
+    while(getline(file3, GREENhold) && (GREENcol.size() >= genenum))
     {
       if(GREENhold.length() != 0)
       {
@@ -154,7 +165,7 @@ void preproc::mypreproc::readfiles(){
 
 
     //read green background file 
-    while(getline(file4, GBACKhold))
+    while(getline(file4, GBACKhold) && (GBACKcol.size() >= genenum))
     {
       if(GBACKhold.length() != 0)
       {
@@ -172,9 +183,6 @@ void preproc::mypreproc::readfiles(){
     }
 
 
-    //check if gene # is greater than number of data points in file
-    // do this eventually 
-
 }
 
 int main(int argc, char *argv[]){
@@ -190,14 +198,6 @@ int main(int argc, char *argv[]){
     preproc::mypreproc callconst(argument1, argument2, argument3, argument4, argument5, argument6);
     callconst.readfiles();
 
-
-    // std::cout << "These are your arguments: " << std::endl;
-    // std::cout << argument1 << std::endl;
-    // std::cout << argument2 << std::endl;
-    // std::cout << argument3 << std::endl;
-    // std::cout << argument4 << std::endl;
-    // std::cout << argument5 << std::endl;
-    // std::cout << argument6 << std::endl;
     return 0;
 
 }

@@ -22,12 +22,12 @@ void Dataset::myDataset::load_dataset(){
 
     //load in the file
 	listStream.open(this->file_name); //gotta figure out what files to open, probably a file path??
-    // if (listStream.is_open()){
-    //     std::cout << "FileOpen"<< std::endl;
-    // }
-    // else{
-    //     std::cout << "File Not open" << std::endl;
-    // }
+    if (listStream.is_open()){
+        std::cout << "FileOpen"<< std::endl;
+    }
+    else{
+        std::cout << "File Not open" << std::endl;
+    }
 
     //loads headers in to HeaderList[] array
     getline(listStream, header);
@@ -39,19 +39,18 @@ void Dataset::myDataset::load_dataset(){
         //std::cout << HeaderList[i] << std::endl; //this worked
     }
         
-        float temp = 0;
-        float temp2 = 0;
         //loads columns into col vector
-             while(getline(listStream, line)){
+             while(getline(listStream, line))
+             {
                 std::stringstream sstream1(line);
                 getline(sstream1, line, ',');
                 line.erase(remove(line.begin(), line.end(), '-'), line.end());
-                if(line.length() != 0){
-                    temp = std::stof(line);
-                    col.push_back(temp);//std::stof(line));
-                    
+                if(line.length() != 0)
+                {
+                    col.push_back(std::stof(line));    
                 }
-                else{
+                else
+                {
                     col.push_back(std::numeric_limits<float>::quiet_NaN());
                 }
 
@@ -91,9 +90,9 @@ void Dataset::myDataset::load_dataset(){
 
             // for loops to check if the arrays got printed properly
             for(int j = 0; j<col.size(); j++){
-                std::cout << std::fixed;
-                std::cout << std::setprecision(0);
-                std::cout <<col.at(j) << std::endl;
+                // std::cout << std::fixed;
+                // std::cout << std::setprecision(0);
+                // std::cout <<col.at(j) << std::endl;
             }
 
             for(int z = 0; z<hold1.size(); z++){
@@ -118,12 +117,15 @@ void Dataset::myDataset::load_dataset(){
             cols[HeaderList[3]] = hold3; //fourth header ()
             cols[HeaderList[4]] = hold4; //fifth header ()
 
+        std::cout<< std::fixed;
+        std::cout<< std::setprecision(0);
+        std::cout << cols[HeaderList[0]][10] << std::endl;
         // cols[HeaderList[0]][10];//accessing the 10th index of headerlist 0                    
 }
 
-//std::unordered_map<std::string, std::vector<float>> Dataset::myDataset::GetMap(){
-  //  return this->cols;
-//}
+std::unordered_map<std::string, std::vector<float>> Dataset::myDataset::GetMap(){
+   return this->cols;
+}
 
             
 
