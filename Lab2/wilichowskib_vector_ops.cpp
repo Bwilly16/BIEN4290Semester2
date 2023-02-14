@@ -65,3 +65,14 @@ float vectorops::myvectorops::Means(std::vector<float>* corCOLOR, uint num)
     temp = temp/num;
     return temp;
 }
+
+ void vectorops::myvectorops::norms(std::vector<float>* Ccorrect, float CMean, std::vector<float>* NormalArray, uint num)
+ {
+    std::cout << "Normalized array" << std::endl;
+    for(uint i = 0; i < num; i++)
+    {
+        NormalArray->push_back(Ccorrect->at(i) - CMean);
+        std::cout << NormalArray->at(i) << std::endl;
+    }
+    
+ }

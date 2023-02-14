@@ -193,33 +193,38 @@ int main(int argc, char *argv[]){
     std::string argument5 = argv[5]; //name of file being wrote too
     uint argument6 = std::stoi(argv[6]); //number of genes being analyzed
 
-    std::vector<float> REDcol, RBACKcol, GREENcol, GBACKcol ,REDcorrect, GREENcorrect;
+    std::vector<float> REDcol, RBACKcol, GREENcol, GBACKcol ,REDcorrect, GREENcorrect, REDnorm, GREENnorm;
     float GREENcor = 0;
     float REDcor = 0;
 
     preproc::mypreproc callconst(argument1, argument2, argument3, argument4, argument5, argument6);
-    callconst.readfiles(&REDcol, &RBACKcol, &GREENcol, &GBACKcol);
+    callconst.readfiles(&REDcol, &RBACKcol, &GREENcol, &GBACKcol); //load files in 
 
     vectorops::myvectorops passvar;
-    passvar.substuff(&REDcol, &RBACKcol, &REDcorrect, argument6);
-    passvar.substuff(&GREENcol, &GBACKcol, &GREENcorrect, argument6);
+    passvar.substuff(&REDcol, &RBACKcol, &REDcorrect, argument6); //subtract background from red
+    passvar.substuff(&GREENcol, &GBACKcol, &GREENcorrect, argument6); //subtract background from green
 
-    REDcor = passvar.Means(&REDcorrect, argument6);
-    GREENcor = passvar.Means(&GREENcorrect, argument6);
+    REDcor = passvar.Means(&REDcorrect, argument6); // find means of red value
+    GREENcor = passvar.Means(&GREENcorrect, argument6); //find mean of green value
 
-    std::cout << "RED mean: " << REDcor << std::endl;
-    std::cout << "GREEN mean: " << GREENcor << std::endl;
+    // std::cout << "RED mean: " << REDcor << std::endl;
+    // std::cout << "GREEN mean: " << GREENcor << std::endl;
+
+    passvar.norms(&REDcorrect, REDcor, &REDnorm, argument6); // normalize the red 
+    passvar.norms(&GREENcorrect, GREENcor, &GREENnorm, argument6); // normalize the green
+
+  
 
 
     //these WORK
-    // std::cout << "pringing REDcorrect" << std::endl;
-    //   for(int i = 0; i<5; i++){
-    //     std::cout << REDcorrect.at(i) << std::endl;
-    // }
-    // std::cout << "pringing GREENcorrect" << std::endl;
-    //   for(int i = 0; i<5; i++){
-    //     std::cout << GREENcorrect.at(i) << std::endl;
-    // }
+    std::cout << "printing normalized red" << std::endl;
+      for(int i = 0; i<5; i++){
+        std::cout << REDnorm.at(i) << std::endl;
+    }
+    std::cout << "printing normalized green" << std::endl;
+      for(int i = 0; i<5; i++){
+        std::cout << GREENnorm.at(i) << std::endl;
+    }
 
 
     return 0;

@@ -24,6 +24,7 @@ namespace vectorops{ //namespace
            void substuff(std::vector<float>*, std::vector<float>*, std::vector<float>*, uint);
            void multstuff(int, std::vector<float>*, std::vector<float>*);
            float Means(std::vector<float>*, uint);
+           void norms(std::vector<float>*, float, std::vector<float>*, uint);
            void logintensity(std::vector<float>*); //also write intensity to arg5 file specified
     };
 }
