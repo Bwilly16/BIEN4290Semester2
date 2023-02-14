@@ -10,19 +10,22 @@ Class: BIEN4290
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <iostream>
 #include <vector>
+#include <math.h>
 
 namespace vectorops{ //namespace
     //class name (constructor matches namespace)
     class myvectorops{
         public:
            myvectorops(); //constructor def. 
-           std::vector<float> sumstuff(std::vector<float>);
-           std::vector<float> substuff(std::vector<float>, std::vector<float>);
-           std::vector<float> multstuff(int, std::vector<float>);
-           std::vector<float> GreenMean(std::vector<float>);
-           std::vector<float> RedMean(std::vector<float>);
-           std::vector<float> logintensity(std::vector<float>); //also write intensity to arg5 file specified
+           
+           void sumstuff(std::vector<float>*, std::vector<float>*, std::vector<float>*);
+           void substuff(std::vector<float>*, std::vector<float>*, std::vector<float>*, uint);
+           void multstuff(int, std::vector<float>*, std::vector<float>*);
+           void GreenMean(std::vector<float>*);
+           void RedMean(std::vector<float>*);
+           void logintensity(std::vector<float>*); //also write intensity to arg5 file specified
     };
 }
 

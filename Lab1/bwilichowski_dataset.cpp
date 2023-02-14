@@ -117,9 +117,9 @@ void Dataset::myDataset::load_dataset(){
             cols[HeaderList[3]] = hold3; //fourth header ()
             cols[HeaderList[4]] = hold4; //fifth header ()
 
-        std::cout<< std::fixed;
-        std::cout<< std::setprecision(0);
-        std::cout << cols[HeaderList[0]][10] << std::endl;
+        // std::cout<< std::fixed;
+        // std::cout<< std::setprecision(0);
+        // std::cout << cols[HeaderList[0]][10] << std::endl;
         // cols[HeaderList[0]][10];//accessing the 10th index of headerlist 0                    
 }
 
