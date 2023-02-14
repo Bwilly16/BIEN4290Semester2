@@ -21,28 +21,27 @@ void sumstuff(std::vector<float> array1, std::vector<float> array12, std::vector
 }
 
 void vectorops::myvectorops::substuff(std::vector<float>* arraycolor, std::vector<float>* arrayback, std::vector<float>* holdvect, uint num){
-    std::cout << "printing array color" << std::endl;
-    for(uint i = 0; i<5; i++){
-        std::cout << arraycolor->at(i) << std::endl;
-    }
+    // std::cout << "printing array color" << std::endl;
+    // for(uint i = 0; i<5; i++){
+    //     std::cout << arraycolor->at(i) << std::endl;
+    // }
 
-    std::cout << "printing array back" << std::endl;
-    for(uint i = 0; i<5; i++){
-        std::cout << arrayback->at(i) << std::endl;
-    }
+    // std::cout << "printing array back" << std::endl;
+    // for(uint i = 0; i<5; i++){
+    //     std::cout << arrayback->at(i) << std::endl;
+    // }
 
 
-    std::cout << "Made it into the sub function" << std::endl;
+    //std::cout << "Made it into the sub function" << std::endl;
     for(uint i = 0; i<arraycolor->size(); i++){
         holdvect->push_back(arraycolor->at(i) - arrayback->at(i));
     }
-    std::cout << "made it past the math part, entering the printout statement" << std::endl;
-    std::cout << "Corrected array: " << std::endl;
 
-    for(uint i = 0; i<num; i++)
-    {
-        std::cout << holdvect->at(i) << std::endl;
-    }
+    // std::cout << "Corrected array: " << std::endl;
+    // for(uint i = 0; i<num; i++)
+    // {
+    //     std::cout << holdvect->at(i) << std::endl;
+    // }
     
 }
 
@@ -53,4 +52,16 @@ void multstuff(int c, std::vector<float> array4){
         multarray.push_back(c * array4[i]);
     }
     
+}
+
+float vectorops::myvectorops::Means(std::vector<float>* corCOLOR, uint num)
+{
+    float temp = 0;
+    for(uint i = 0; i<num; i++)
+    {
+        temp = corCOLOR->at(i) + temp;
+       
+    }
+    temp = temp/num;
+    return temp;
 }

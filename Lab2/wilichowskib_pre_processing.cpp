@@ -193,23 +193,29 @@ int main(int argc, char *argv[]){
     std::string argument5 = argv[5]; //name of file being wrote too
     uint argument6 = std::stoi(argv[6]); //number of genes being analyzed
 
-    std::vector<float> REDcol, RBACKcol, GREENcol, GBACKcol, REDcorrect, GREENcorrect;
+    std::vector<float> REDcol, RBACKcol, GREENcol, GBACKcol ,REDcorrect, GREENcorrect;
+    float GREENcor = 0;
+    float REDcor = 0;
 
-    std::cout << "Calling readfiles" << std::endl;
     preproc::mypreproc callconst(argument1, argument2, argument3, argument4, argument5, argument6);
     callconst.readfiles(&REDcol, &RBACKcol, &GREENcol, &GBACKcol);
 
-    std::cout << "Calling substuff" << std::endl;
     vectorops::myvectorops passvar;
     passvar.substuff(&REDcol, &RBACKcol, &REDcorrect, argument6);
     passvar.substuff(&GREENcol, &GBACKcol, &GREENcorrect, argument6);
 
-    // these WORK
+    REDcor = passvar.Means(&REDcorrect, argument6);
+    GREENcor = passvar.Means(&GREENcorrect, argument6);
+
+    std::cout << "RED mean: " << REDcor << std::endl;
+    std::cout << "GREEN mean: " << GREENcor << std::endl;
+
+
+    //these WORK
     // std::cout << "pringing REDcorrect" << std::endl;
     //   for(int i = 0; i<5; i++){
     //     std::cout << REDcorrect.at(i) << std::endl;
     // }
-
     // std::cout << "pringing GREENcorrect" << std::endl;
     //   for(int i = 0; i<5; i++){
     //     std::cout << GREENcorrect.at(i) << std::endl;
