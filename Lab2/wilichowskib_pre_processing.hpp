@@ -23,10 +23,7 @@ namespace preproc{ //namespace
         public:
            mypreproc(std::string, std::string, std::string, std::string, std::string, uint); //constructor def. 
            void readfiles(std::vector<float>*, std::vector<float>*, std::vector<float>*, std::vector<float>*);
-           //sum funct
-           //sub funct
-           //
-
+           
         private:
             std::string arg1, arg2, arg3, arg4, arg5;
             uint arg6;

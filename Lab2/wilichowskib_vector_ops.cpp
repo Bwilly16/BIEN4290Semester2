@@ -71,7 +71,7 @@ float vectorops::myvectorops::Means(std::vector<float>* corCOLOR, uint num)
     std::cout << "Normalized array" << std::endl;
     for(uint i = 0; i < num; i++)
     {
-        NormalArray->push_back(Ccorrect->at(i) - CMean);
+        NormalArray->push_back(Ccorrect->at(i)/CMean); //if the value is the mean, the true mean value should be 1
         std::cout << NormalArray->at(i) << std::endl;
     }
     
