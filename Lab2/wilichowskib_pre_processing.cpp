@@ -193,7 +193,7 @@ int main(int argc, char *argv[]){
     std::string argument5 = argv[5]; //name of file being wrote too
     uint argument6 = std::stoi(argv[6]); //number of genes being analyzed
 
-    std::vector<float> REDcol, RBACKcol, GREENcol, GBACKcol ,REDcorrect, GREENcorrect, REDnorm, GREENnorm;
+    std::vector<float> REDcol, RBACKcol, GREENcol, GBACKcol ,REDcorrect, GREENcorrect, REDnorm, GREENnorm, logvect;
     float GREENcor = 0;
     float REDcor = 0;
 
@@ -213,18 +213,18 @@ int main(int argc, char *argv[]){
     passvar.norms(&REDcorrect, REDcor, &REDnorm, argument6); // normalize the red 
     passvar.norms(&GREENcorrect, GREENcor, &GREENnorm, argument6); // normalize the green
 
-  
+    passvar.logintensity(&REDnorm, &GREENnorm, &logvect, argument6);
 
 
     //these WORK
-    std::cout << "printing normalized red" << std::endl;
-      for(int i = 0; i<5; i++){
-        std::cout << REDnorm.at(i) << std::endl;
+    std::cout << "printing log ratios" << std::endl;
+      for(uint i = 0; i<argument6; i++){
+        std::cout << logvect.at(i) << std::endl;
     }
-    std::cout << "printing normalized green" << std::endl;
-      for(int i = 0; i<5; i++){
-        std::cout << GREENnorm.at(i) << std::endl;
-    }
+    // std::cout << "printing normalized green" << std::endl;
+    //   for(int i = 0; i<5; i++){
+    //     std::cout << GREENnorm.at(i) << std::endl;
+    // }
 
 
     return 0;

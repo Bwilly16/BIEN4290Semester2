@@ -68,11 +68,21 @@ float vectorops::myvectorops::Means(std::vector<float>* corCOLOR, uint num)
 
  void vectorops::myvectorops::norms(std::vector<float>* Ccorrect, float CMean, std::vector<float>* NormalArray, uint num)
  {
-    std::cout << "Normalized array" << std::endl;
+    //std::cout << "Normalized array" << std::endl;
     for(uint i = 0; i < num; i++)
     {
         NormalArray->push_back(Ccorrect->at(i)/CMean); //if the value is the mean, the true mean value should be 1
-        std::cout << NormalArray->at(i) << std::endl;
+       // std::cout << NormalArray->at(i) << std::endl;
     }
     
+ }
+
+ void vectorops::myvectorops::logintensity(std::vector<float>* Rcolor, std::vector<float>* Gcolor, std::vector<float>* loghold, uint num)
+ {
+    std::cout << "Log intensity array:" << std::endl;
+    for(uint i = 0; i < num; i++)
+    {
+        loghold->push_back(log10((Rcolor->at(i))/Gcolor->at(i)));
+        //std::cout << loghold->at(i) << std::endl;
+    }
  }

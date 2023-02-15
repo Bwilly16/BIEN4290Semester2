@@ -19,13 +19,12 @@ namespace vectorops{ //namespace
     class myvectorops{
         public:
            myvectorops(); //constructor def. 
-           
            void sumstuff(std::vector<float>*, std::vector<float>*, std::vector<float>*);
            void substuff(std::vector<float>*, std::vector<float>*, std::vector<float>*, uint);
            void multstuff(int, std::vector<float>*, std::vector<float>*);
            float Means(std::vector<float>*, uint);
            void norms(std::vector<float>*, float, std::vector<float>*, uint);
-           void logintensity(std::vector<float>*); //also write intensity to arg5 file specified
+           void logintensity(std::vector<float>*, std::vector<float>*, std::vector<float>*, uint); //also write intensity to arg5 file specified
     };
 }
 
