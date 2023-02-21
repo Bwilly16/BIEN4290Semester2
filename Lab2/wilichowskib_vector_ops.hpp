@@ -13,6 +13,7 @@ Class: BIEN4290
 #include <iostream>
 #include <vector>
 #include <math.h>
+#include <fstream>
 
 namespace vectorops{ //namespace
     //class name (constructor matches namespace)
@@ -24,7 +25,7 @@ namespace vectorops{ //namespace
            void multstuff(int, std::vector<float>*, std::vector<float>*);
            float Means(std::vector<float>*, uint);
            void norms(std::vector<float>*, float, std::vector<float>*, uint);
-           void logintensity(std::vector<float>*, std::vector<float>*, std::vector<float>*, uint); //also write intensity to arg5 file specified
+           void logintensity(std::vector<float>*, std::vector<float>*, std::vector<float>*, std::string, uint); //also write intensity to arg5 file specified
     };
 }
 

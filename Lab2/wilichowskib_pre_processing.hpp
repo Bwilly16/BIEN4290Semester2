@@ -21,8 +21,8 @@ namespace preproc{ //namespace
     //class name (constructor matches namespace)
     class mypreproc{
         public:
-           mypreproc(std::string, std::string, std::string, std::string, std::string, uint); //constructor def. 
-           void readfiles(std::vector<float>*, std::vector<float>*, std::vector<float>*, std::vector<float>*);
+           mypreproc(std::string, std::string, std::string, std::string, std::string); //constructor def. 
+           void readfiles(std::vector<float>*, std::vector<float>*, std::vector<float>*, std::vector<float>*, std::string*);
            
         private:
             std::string arg1, arg2, arg3, arg4, arg5;

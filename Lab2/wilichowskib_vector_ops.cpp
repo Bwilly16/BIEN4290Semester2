@@ -77,12 +77,19 @@ float vectorops::myvectorops::Means(std::vector<float>* corCOLOR, uint num)
     
  }
 
- void vectorops::myvectorops::logintensity(std::vector<float>* Rcolor, std::vector<float>* Gcolor, std::vector<float>* loghold, uint num)
+ void vectorops::myvectorops::logintensity(std::vector<float>* Rcolor, std::vector<float>* Gcolor, std::vector<float>* loghold, std::string textfile, uint num)
  {
-    std::cout << "Log intensity array:" << std::endl;
+    std::ofstream myfile;
+    myfile.open(textfile);
+
+    
+
+    //std::cout << "Log intensity array:" << std::endl;
     for(uint i = 0; i < num; i++)
     {
         loghold->push_back(log10((Rcolor->at(i))/Gcolor->at(i)));
-        //std::cout << loghold->at(i) << std::endl;
+        myfile << loghold->at(i) << std::endl;
+
     }
+    myfile.close();
  }

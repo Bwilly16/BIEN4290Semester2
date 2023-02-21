@@ -7,17 +7,18 @@ Class: BIEN4290
 
 #include "wilichowskib_pre_processing.hpp"
 #include "wilichowskib_vector_ops.hpp"
+#include "wilichowskib_k_means.hpp"
 
-preproc::mypreproc::mypreproc(std::string a1, std::string a2, std::string a3, std::string a4, std::string a5, uint a6){
+preproc::mypreproc::mypreproc(std::string a1, std::string a2, std::string a3, std::string a4, std::string a5){
     this->arg1 = a1; //red file
     this->arg2 = a2; //red background file
     this->arg3 = a3; //green file
     this->arg4 = a4; //green background file
     this->arg5 = a5; //file being written to
-    this->arg6 = a6; //number of genes being analyzed
+    //this->arg6 = a6; //number of genes being analyzed
 }
 
-void preproc::mypreproc::readfiles(std::vector<float> *REDcol, std::vector<float> *RBACKcol, std::vector<float> *GREENcol, std::vector<float> *GBACKcol){
+void preproc::mypreproc::readfiles(std::vector<float> *REDcol, std::vector<float> *RBACKcol, std::vector<float> *GREENcol, std::vector<float> *GBACKcol, std::string *logfile){
 
     //streams for files being read, 6th argument is a integer
     std::ifstream file1(this->arg1); //red file
@@ -77,15 +78,15 @@ void preproc::mypreproc::readfiles(std::vector<float> *REDcol, std::vector<float
     }
 
     //file5
-    // if(file5)
-    // {
-    //   std::cout<< "File being written to exists" << std::endl;
-    // } 
-    // else 
-    // {
-    //   std::cout<< "ERROR: written file doesn't exist. EXITING PROGRAM" << std::endl;
-    //   exit(1);
-    // }
+    if(file5)
+    {
+      std::cout<< "File being written to exists" << std::endl;
+    } 
+    else 
+    {
+      std::cout<< "ERROR: written file doesn't exist. EXITING PROGRAM" << std::endl;
+      exit(1);
+    }
 
 
 
@@ -194,11 +195,12 @@ int main(int argc, char *argv[]){
     uint argument6 = std::stoi(argv[6]); //number of genes being analyzed
 
     std::vector<float> REDcol, RBACKcol, GREENcol, GBACKcol ,REDcorrect, GREENcorrect, REDnorm, GREENnorm, logvect;
+    std::string logintensity;
     float GREENcor = 0;
     float REDcor = 0;
 
-    preproc::mypreproc callconst(argument1, argument2, argument3, argument4, argument5, argument6);
-    callconst.readfiles(&REDcol, &RBACKcol, &GREENcol, &GBACKcol); //load files in 
+    preproc::mypreproc callconst(argument1, argument2, argument3, argument4, argument5);
+    callconst.readfiles(&REDcol, &RBACKcol, &GREENcol, &GBACKcol, &logintensity); //load files in 
 
     vectorops::myvectorops passvar;
     passvar.substuff(&REDcol, &RBACKcol, &REDcorrect, argument6); //subtract background from red
@@ -213,20 +215,20 @@ int main(int argc, char *argv[]){
     passvar.norms(&REDcorrect, REDcor, &REDnorm, argument6); // normalize the red 
     passvar.norms(&GREENcorrect, GREENcor, &GREENnorm, argument6); // normalize the green
 
-    passvar.logintensity(&REDnorm, &GREENnorm, &logvect, argument6);
+    passvar.logintensity(&REDnorm, &GREENnorm, &logvect, argument5, argument6); //stores into logintensity txt file
 
 
     //these WORK
-    std::cout << "printing log ratios" << std::endl;
-      for(uint i = 0; i<argument6; i++){
-        std::cout << logvect.at(i) << std::endl;
-    }
+    // std::cout << "printing log ratios" << std::endl;
+    //   for(uint i = 0; i<argument6; i++){
+    //     std::cout << logvect.at(i) << std::endl;
+    // }
     // std::cout << "printing normalized green" << std::endl;
     //   for(int i = 0; i<5; i++){
     //     std::cout << GREENnorm.at(i) << std::endl;
     // }
 
-
+    
     return 0;
 
 }
