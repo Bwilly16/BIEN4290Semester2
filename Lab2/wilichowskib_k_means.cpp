@@ -1,3 +1,8 @@
+//Author: Ben Wilichowsi
+//Date: 2/27/2023
+//Purpose: to calculate the cluster means 
+
+
 #include "wilichowskib_k_means.hpp"
 
 
