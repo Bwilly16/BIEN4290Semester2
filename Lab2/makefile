@@ -5,19 +5,24 @@ LDFLAGS =
 LIBS = -lm 
 LIBDIR = $(HOME)/BIEN4290Semester2/Lab2/lib #dont have these yet, maybe at all??
 INCDIR = $(HOME)/BIEN4290Semester2/Lab2/includes #^^
-EXENAME = kmeanTEST
+EXENAME = kmean_exe
+EXENAMEN = preproc_exe
 
-all: wilichowskib_k_means.o #wilichowskib_vector_ops.o wilichowskib_pre_processing.o 	#//first checks these
+
+preproc: wilichowskib_pre_processing.o wilichowskib_vector_ops.o
+	$(CC) $(CFLAGS) $? -o $(EXENAMEN)
+
+kmeans: wilichowskib_k_means.o wilichowskib_vector_ops.o 	
 	$(CC) $(CFLAGS) $? -o $(EXENAME)
 
-# wilichowskib_vector_ops.o: wilichowskib_vector_ops.cpp
-# 	$(CC) $(CFLAGS) -c $< $(LIBS)
+wilichowskib_vector_ops.o: wilichowskib_vector_ops.cpp
+	$(CC) $(CFLAGS) -c $< $(LIBS)
 
-# wilichowskib_pre_processing.o: wilichowskib_pre_processing.cpp
-# 	$(CC) $(CFLAGS) -c $< $(LIBS)
+wilichowskib_pre_processing.o: wilichowskib_pre_processing.cpp
+	$(CC) $(CFLAGS) -c $< $(LIBS)
 
 wilichowskib_k_means.o: wilichowskib_k_means.cpp
 	$(CC) $(CFLAGS) -c $< $(LIBS)
 
-Clean: wilichowskib_k_means.o #wilichowskib_vector_ops.o wilichowskib_pre_processing.o 
-	rm $? $(EXENAME)
+clean: wilichowskib_k_means.o wilichowskib_vector_ops.o wilichowskib_pre_processing.o 
+	rm $?

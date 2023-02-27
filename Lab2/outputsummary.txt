@@ -1,0 +1,56 @@
+Time Point 0:
+Final Number of Suppressed Genes: 1816
+Final Number of Stationary Genes: 2727
+Final Number of Expressed Genes: 1575
+Final Suppressed Gene Cluster Mean: -0.0990376
+Final Stationary Gene Cluster Mean: -0.0130822
+Final Expressed Gene Cluster Mean: 0.0788725
+
+Time Point 1:
+Final Number of Suppressed Genes: 694
+Final Number of Stationary Genes: 3719
+Final Number of Expressed Genes: 1705
+Final Suppressed Gene Cluster Mean: -0.504442
+Final Stationary Gene Cluster Mean: -0.0423405
+Final Expressed Gene Cluster Mean: 0.272742
+
+Time Point 2:
+Final Number of Suppressed Genes: 1135
+Final Number of Stationary Genes: 3651
+Final Number of Expressed Genes: 1332
+Final Suppressed Gene Cluster Mean: -0.307331
+Final Stationary Gene Cluster Mean: -0.00805741
+Final Expressed Gene Cluster Mean: 0.296304
+
+Time Point 3:
+Final Number of Suppressed Genes: 1652
+Final Number of Stationary Genes: 3773
+Final Number of Expressed Genes: 693
+Final Suppressed Gene Cluster Mean: -0.296325
+Final Stationary Gene Cluster Mean: 0.0371231
+Final Expressed Gene Cluster Mean: 0.535107
+
+Time Point 4:
+Final Number of Suppressed Genes: 1954
+Final Number of Stationary Genes: 3466
+Final Number of Expressed Genes: 698
+Final Suppressed Gene Cluster Mean: -0.37623
+Final Stationary Gene Cluster Mean: 0.0414794
+Final Expressed Gene Cluster Mean: 0.703677
+
+Time Point 5:
+Final Number of Suppressed Genes: 2008
+Final Number of Stationary Genes: 3486
+Final Number of Expressed Genes: 624
+Final Suppressed Gene Cluster Mean: -0.321558
+Final Stationary Gene Cluster Mean: 0.0323562
+Final Expressed Gene Cluster Mean: 0.649013
+
+Time Point 6:
+Final Number of Suppressed Genes: 2350
+Final Number of Stationary Genes: 3261
+Final Number of Expressed Genes: 507
+Final Suppressed Gene Cluster Mean: -0.315237
+Final Stationary Gene Cluster Mean: 0.0215709
+Final Expressed Gene Cluster Mean: 0.723751
+
