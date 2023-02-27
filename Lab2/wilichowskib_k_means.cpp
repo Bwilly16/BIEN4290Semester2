@@ -52,10 +52,13 @@ float cluster::mycluster::get_newmean()
 
 int main(int argc, char *argv[])
 {
-    float temp, d1, d2, d3;
+    float temp, d1, d2, d3, newmean1, newmean2, newmean3;
+    int num = 0;
     //read in and check if file exitst (WORKS)
     std::string argument1 = argv[1]; //name of log file
     std::vector<float> log_array;
+
+    std::cout << "Run Number: " << num << std::endl;
 
     std::ifstream logfile(argument1);
     if(logfile)
@@ -96,12 +99,12 @@ int main(int argc, char *argv[])
     cluster2.setmean(0.0);
     cluster3.setmean(0.5);
 
-    std::cout << "C1 name: " << cluster1.getname() << std::endl;
-    std::cout << "C1 mean: " << cluster1.getmean() << std::endl;
-    std::cout << "C2 name: " << cluster2.getname() << std::endl;
-    std::cout << "C2 mean: " << cluster2.getmean() << std::endl;
-    std::cout << "C3 name: " << cluster3.getname() << std::endl;
-    std::cout << "C3 mean: " << cluster3.getmean() << std::endl;
+    // std::cout << "C1 name: " << cluster1.getname() << std::endl;
+    // std::cout << "C1 mean: " << cluster1.getmean() << std::endl;
+    // std::cout << "C2 name: " << cluster2.getname() << std::endl;
+    // std::cout << "C2 mean: " << cluster2.getmean() << std::endl;
+    // std::cout << "C3 name: " << cluster3.getname() << std::endl;
+    // std::cout << "C3 mean: " << cluster3.getmean() << std::endl;
 
 
     //fore each loop = each points distance to cluster means
@@ -142,22 +145,22 @@ int main(int argc, char *argv[])
     float expressed = cluster3.getmean();
     //std::cout << "expressed mean : " << surpressed << std::endl;
 
-    newcluster1.put_mean(&cluster1.cluster_data);
-    float newmean1 = newcluster1.get_newmean();
+    newcluster1.put_mean(&cluster1.cluster_data); // set new mean to cluster 1
+    newmean1 = newcluster1.get_newmean();
     std::cout << "New mean value 1: " << newmean1 << std::endl;
 
-    newcluster2.put_mean(&cluster2.cluster_data);
-    float newmean2 = newcluster2.get_newmean();
+    newcluster2.put_mean(&cluster2.cluster_data); // set new mean to cluster 2
+    newmean2 = newcluster2.get_newmean();
     std::cout << "New mean value 2: " << newmean2 << std::endl;
 
-    newcluster3.put_mean(&cluster3.cluster_data);
-    float newmean3 = newcluster3.get_newmean();
+    newcluster3.put_mean(&cluster3.cluster_data); // set new mean to cluster 3
+    newmean3 = newcluster3.get_newmean();
     std::cout << "New mean value 3: " << newmean3 << std::endl;
 
-    criteria = abs(surpressed - newmean1) + abs(stationary - newmean2) + abs(expressed - newmean3);
+    criteria = abs(surpressed - newmean1) + abs(stationary - newmean2) + abs(expressed - newmean3); // criteria calculation 
     std::cout << "criteria value: " << criteria << std::endl;
 
-    cluster1.setmean(newmean1);
+    cluster1.setmean(newmean1); //giving new mean to each cluster
     cluster2.setmean(newmean2);
     cluster3.setmean(newmean3);
 
@@ -165,12 +168,12 @@ int main(int argc, char *argv[])
     // std::cout << "New mean value for cluster 2: " << newmean2 << std::endl;
     // std::cout << "New mean value for cluster 3: " << newmean3 << std::endl;
 
-    cluster1.cluster_data.clear();
+    cluster1.cluster_data.clear(); //using the clear function 
     cluster2.cluster_data.clear();
     cluster3.cluster_data.clear();
 
   
-
+    num = num + 1; // idk if this even helps to see how many times I have ran
   }
   
     return 0;
