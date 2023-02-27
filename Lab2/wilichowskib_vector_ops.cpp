@@ -82,7 +82,6 @@ float vectorops::myvectorops::Means(std::vector<float>* corCOLOR, uint num)
     std::ofstream myfile;
     myfile.open(textfile);
 
-    
 
     //std::cout << "Log intensity array:" << std::endl;
     for(uint i = 0; i < num; i++)
