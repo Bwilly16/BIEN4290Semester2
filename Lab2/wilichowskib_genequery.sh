@@ -3,9 +3,9 @@
 #Date: 2/27/2023
 #Purpose: to get current status of desired gene name
 
-echo "What type of gene do you wanna analyze?"
+echo "What is the name of the desired gene?"
 read gene_type
-echo "You want to analyze $gene_type"
+echo "You want to look for $gene_type"
 echo " "
 
 
@@ -16,18 +16,20 @@ do
 
 
     if grep -q $gene_type suppressed_genes_$i.txt; then #using -q to output only the echoed phrase, kept outputting the variable name too
-    echo "Supressed"
+    echo "Suppressed"
     echo " " #simplest way to print a new line
-    fi
+    
 
-    if grep -q $gene_type stationary_genes_$i.txt; then
+    elif grep -q $gene_type stationary_genes_$i.txt; then
     echo "Stationary"
     echo " "
-    fi
+    
 
-    if grep -q $gene_type expressed_genes_$i.txt; then
+    elif grep -q $gene_type expressed_genes_$i.txt; then
     echo "Expressed"
     echo " "
+    
+
+    else echo "$gene_type does not exist anywhere..."
     fi
-   
 done
