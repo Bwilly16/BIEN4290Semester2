@@ -1,0 +1,720 @@
+Universe = vanilla
+Executable = executable_name.exe
+Arguments = 60 60 1000000 4
+Log = logs/dor.log
+Output = dor$ (Process).out
+Error = dor$ (Process).error
+getenv = True
+should_transfer_files = Yes
+when_to_transfer_output = ON_EXIT_OR_EVICT
+transfer_input_files = spectrum60.dat
+transfer_output_files = primary_out_60_4_60.bin,scatter_60_4_60.bin
+on_exit_remove = (ExitCode == 0)
+RequestCpus=1
+Queue 1
+
+Universe = vanilla
+Executable = executable_name.exe
+Arguments = 60 60 1000000 6
+Log = logs/dor.log
+Output = dor$ (Process).out
+Error = dor$ (Process).error
+getenv = True
+should_transfer_files = Yes
+when_to_transfer_output = ON_EXIT_OR_EVICT
+transfer_input_files = spectrum60.dat
+transfer_output_files = primary_out_60_6_60.bin,scatter_60_6_60.bin
+on_exit_remove = (ExitCode == 0)
+RequestCpus=1
+Queue 1
+
+Universe = vanilla
+Executable = executable_name.exe
+Arguments = 60 60 1000000 8
+Log = logs/dor.log
+Output = dor$ (Process).out
+Error = dor$ (Process).error
+getenv = True
+should_transfer_files = Yes
+when_to_transfer_output = ON_EXIT_OR_EVICT
+transfer_input_files = spectrum60.dat
+transfer_output_files = primary_out_60_8_60.bin,scatter_60_8_60.bin
+on_exit_remove = (ExitCode == 0)
+RequestCpus=1
+Queue 1
+
+Universe = vanilla
+Executable = executable_name.exe
+Arguments = 60 60 1000000 10
+Log = logs/dor.log
+Output = dor$ (Process).out
+Error = dor$ (Process).error
+getenv = True
+should_transfer_files = Yes
+when_to_transfer_output = ON_EXIT_OR_EVICT
+transfer_input_files = spectrum60.dat
+transfer_output_files = primary_out_60_10_60.bin,scatter_60_10_60.bin
+on_exit_remove = (ExitCode == 0)
+RequestCpus=1
+Queue 1
+
+Universe = vanilla
+Executable = executable_name.exe
+Arguments = 60 80 1000000 4
+Log = logs/dor.log
+Output = dor$ (Process).out
+Error = dor$ (Process).error
+getenv = True
+should_transfer_files = Yes
+when_to_transfer_output = ON_EXIT_OR_EVICT
+transfer_input_files = spectrum80.dat
+transfer_output_files = primary_out_60_4_80.bin,scatter_60_4_80.bin
+on_exit_remove = (ExitCode == 0)
+RequestCpus=1
+Queue 1
+
+Universe = vanilla
+Executable = executable_name.exe
+Arguments = 60 80 1000000 6
+Log = logs/dor.log
+Output = dor$ (Process).out
+Error = dor$ (Process).error
+getenv = True
+should_transfer_files = Yes
+when_to_transfer_output = ON_EXIT_OR_EVICT
+transfer_input_files = spectrum80.dat
+transfer_output_files = primary_out_60_6_80.bin,scatter_60_6_80.bin
+on_exit_remove = (ExitCode == 0)
+RequestCpus=1
+Queue 1
+
+Universe = vanilla
+Executable = executable_name.exe
+Arguments = 60 80 1000000 8
+Log = logs/dor.log
+Output = dor$ (Process).out
+Error = dor$ (Process).error
+getenv = True
+should_transfer_files = Yes
+when_to_transfer_output = ON_EXIT_OR_EVICT
+transfer_input_files = spectrum80.dat
+transfer_output_files = primary_out_60_8_80.bin,scatter_60_8_80.bin
+on_exit_remove = (ExitCode == 0)
+RequestCpus=1
+Queue 1
+
+Universe = vanilla
+Executable = executable_name.exe
+Arguments = 60 80 1000000 10
+Log = logs/dor.log
+Output = dor$ (Process).out
+Error = dor$ (Process).error
+getenv = True
+should_transfer_files = Yes
+when_to_transfer_output = ON_EXIT_OR_EVICT
+transfer_input_files = spectrum80.dat
+transfer_output_files = primary_out_60_10_80.bin,scatter_60_10_80.bin
+on_exit_remove = (ExitCode == 0)
+RequestCpus=1
+Queue 1
+
+Universe = vanilla
+Executable = executable_name.exe
+Arguments = 60 100 1000000 4
+Log = logs/dor.log
+Output = dor$ (Process).out
+Error = dor$ (Process).error
+getenv = True
+should_transfer_files = Yes
+when_to_transfer_output = ON_EXIT_OR_EVICT
+transfer_input_files = spectrum100.dat
+transfer_output_files = primary_out_60_4_100.bin,scatter_60_4_100.bin
+on_exit_remove = (ExitCode == 0)
+RequestCpus=1
+Queue 1
+
+Universe = vanilla
+Executable = executable_name.exe
+Arguments = 60 100 1000000 6
+Log = logs/dor.log
+Output = dor$ (Process).out
+Error = dor$ (Process).error
+getenv = True
+should_transfer_files = Yes
+when_to_transfer_output = ON_EXIT_OR_EVICT
+transfer_input_files = spectrum100.dat
+transfer_output_files = primary_out_60_6_100.bin,scatter_60_6_100.bin
+on_exit_remove = (ExitCode == 0)
+RequestCpus=1
+Queue 1
+
+Universe = vanilla
+Executable = executable_name.exe
+Arguments = 60 100 1000000 8
+Log = logs/dor.log
+Output = dor$ (Process).out
+Error = dor$ (Process).error
+getenv = True
+should_transfer_files = Yes
+when_to_transfer_output = ON_EXIT_OR_EVICT
+transfer_input_files = spectrum100.dat
+transfer_output_files = primary_out_60_8_100.bin,scatter_60_8_100.bin
+on_exit_remove = (ExitCode == 0)
+RequestCpus=1
+Queue 1
+
+Universe = vanilla
+Executable = executable_name.exe
+Arguments = 60 100 1000000 10
+Log = logs/dor.log
+Output = dor$ (Process).out
+Error = dor$ (Process).error
+getenv = True
+should_transfer_files = Yes
+when_to_transfer_output = ON_EXIT_OR_EVICT
+transfer_input_files = spectrum100.dat
+transfer_output_files = primary_out_60_10_100.bin,scatter_60_10_100.bin
+on_exit_remove = (ExitCode == 0)
+RequestCpus=1
+Queue 1
+
+Universe = vanilla
+Executable = executable_name.exe
+Arguments = 60 120 1000000 4
+Log = logs/dor.log
+Output = dor$ (Process).out
+Error = dor$ (Process).error
+getenv = True
+should_transfer_files = Yes
+when_to_transfer_output = ON_EXIT_OR_EVICT
+transfer_input_files = spectrum120.dat
+transfer_output_files = primary_out_60_4_120.bin,scatter_60_4_120.bin
+on_exit_remove = (ExitCode == 0)
+RequestCpus=1
+Queue 1
+
+Universe = vanilla
+Executable = executable_name.exe
+Arguments = 60 120 1000000 6
+Log = logs/dor.log
+Output = dor$ (Process).out
+Error = dor$ (Process).error
+getenv = True
+should_transfer_files = Yes
+when_to_transfer_output = ON_EXIT_OR_EVICT
+transfer_input_files = spectrum120.dat
+transfer_output_files = primary_out_60_6_120.bin,scatter_60_6_120.bin
+on_exit_remove = (ExitCode == 0)
+RequestCpus=1
+Queue 1
+
+Universe = vanilla
+Executable = executable_name.exe
+Arguments = 60 120 1000000 8
+Log = logs/dor.log
+Output = dor$ (Process).out
+Error = dor$ (Process).error
+getenv = True
+should_transfer_files = Yes
+when_to_transfer_output = ON_EXIT_OR_EVICT
+transfer_input_files = spectrum120.dat
+transfer_output_files = primary_out_60_8_120.bin,scatter_60_8_120.bin
+on_exit_remove = (ExitCode == 0)
+RequestCpus=1
+Queue 1
+
+Universe = vanilla
+Executable = executable_name.exe
+Arguments = 60 120 1000000 10
+Log = logs/dor.log
+Output = dor$ (Process).out
+Error = dor$ (Process).error
+getenv = True
+should_transfer_files = Yes
+when_to_transfer_output = ON_EXIT_OR_EVICT
+transfer_input_files = spectrum120.dat
+transfer_output_files = primary_out_60_10_120.bin,scatter_60_10_120.bin
+on_exit_remove = (ExitCode == 0)
+RequestCpus=1
+Queue 1
+
+Universe = vanilla
+Executable = executable_name.exe
+Arguments = 75 60 1000000 4
+Log = logs/dor.log
+Output = dor$ (Process).out
+Error = dor$ (Process).error
+getenv = True
+should_transfer_files = Yes
+when_to_transfer_output = ON_EXIT_OR_EVICT
+transfer_input_files = spectrum60.dat
+transfer_output_files = primary_out_75_4_60.bin,scatter_75_4_60.bin
+on_exit_remove = (ExitCode == 0)
+RequestCpus=1
+Queue 1
+
+Universe = vanilla
+Executable = executable_name.exe
+Arguments = 75 60 1000000 6
+Log = logs/dor.log
+Output = dor$ (Process).out
+Error = dor$ (Process).error
+getenv = True
+should_transfer_files = Yes
+when_to_transfer_output = ON_EXIT_OR_EVICT
+transfer_input_files = spectrum60.dat
+transfer_output_files = primary_out_75_6_60.bin,scatter_75_6_60.bin
+on_exit_remove = (ExitCode == 0)
+RequestCpus=1
+Queue 1
+
+Universe = vanilla
+Executable = executable_name.exe
+Arguments = 75 60 1000000 8
+Log = logs/dor.log
+Output = dor$ (Process).out
+Error = dor$ (Process).error
+getenv = True
+should_transfer_files = Yes
+when_to_transfer_output = ON_EXIT_OR_EVICT
+transfer_input_files = spectrum60.dat
+transfer_output_files = primary_out_75_8_60.bin,scatter_75_8_60.bin
+on_exit_remove = (ExitCode == 0)
+RequestCpus=1
+Queue 1
+
+Universe = vanilla
+Executable = executable_name.exe
+Arguments = 75 60 1000000 10
+Log = logs/dor.log
+Output = dor$ (Process).out
+Error = dor$ (Process).error
+getenv = True
+should_transfer_files = Yes
+when_to_transfer_output = ON_EXIT_OR_EVICT
+transfer_input_files = spectrum60.dat
+transfer_output_files = primary_out_75_10_60.bin,scatter_75_10_60.bin
+on_exit_remove = (ExitCode == 0)
+RequestCpus=1
+Queue 1
+
+Universe = vanilla
+Executable = executable_name.exe
+Arguments = 75 80 1000000 4
+Log = logs/dor.log
+Output = dor$ (Process).out
+Error = dor$ (Process).error
+getenv = True
+should_transfer_files = Yes
+when_to_transfer_output = ON_EXIT_OR_EVICT
+transfer_input_files = spectrum80.dat
+transfer_output_files = primary_out_75_4_80.bin,scatter_75_4_80.bin
+on_exit_remove = (ExitCode == 0)
+RequestCpus=1
+Queue 1
+
+Universe = vanilla
+Executable = executable_name.exe
+Arguments = 75 80 1000000 6
+Log = logs/dor.log
+Output = dor$ (Process).out
+Error = dor$ (Process).error
+getenv = True
+should_transfer_files = Yes
+when_to_transfer_output = ON_EXIT_OR_EVICT
+transfer_input_files = spectrum80.dat
+transfer_output_files = primary_out_75_6_80.bin,scatter_75_6_80.bin
+on_exit_remove = (ExitCode == 0)
+RequestCpus=1
+Queue 1
+
+Universe = vanilla
+Executable = executable_name.exe
+Arguments = 75 80 1000000 8
+Log = logs/dor.log
+Output = dor$ (Process).out
+Error = dor$ (Process).error
+getenv = True
+should_transfer_files = Yes
+when_to_transfer_output = ON_EXIT_OR_EVICT
+transfer_input_files = spectrum80.dat
+transfer_output_files = primary_out_75_8_80.bin,scatter_75_8_80.bin
+on_exit_remove = (ExitCode == 0)
+RequestCpus=1
+Queue 1
+
+Universe = vanilla
+Executable = executable_name.exe
+Arguments = 75 80 1000000 10
+Log = logs/dor.log
+Output = dor$ (Process).out
+Error = dor$ (Process).error
+getenv = True
+should_transfer_files = Yes
+when_to_transfer_output = ON_EXIT_OR_EVICT
+transfer_input_files = spectrum80.dat
+transfer_output_files = primary_out_75_10_80.bin,scatter_75_10_80.bin
+on_exit_remove = (ExitCode == 0)
+RequestCpus=1
+Queue 1
+
+Universe = vanilla
+Executable = executable_name.exe
+Arguments = 75 100 1000000 4
+Log = logs/dor.log
+Output = dor$ (Process).out
+Error = dor$ (Process).error
+getenv = True
+should_transfer_files = Yes
+when_to_transfer_output = ON_EXIT_OR_EVICT
+transfer_input_files = spectrum100.dat
+transfer_output_files = primary_out_75_4_100.bin,scatter_75_4_100.bin
+on_exit_remove = (ExitCode == 0)
+RequestCpus=1
+Queue 1
+
+Universe = vanilla
+Executable = executable_name.exe
+Arguments = 75 100 1000000 6
+Log = logs/dor.log
+Output = dor$ (Process).out
+Error = dor$ (Process).error
+getenv = True
+should_transfer_files = Yes
+when_to_transfer_output = ON_EXIT_OR_EVICT
+transfer_input_files = spectrum100.dat
+transfer_output_files = primary_out_75_6_100.bin,scatter_75_6_100.bin
+on_exit_remove = (ExitCode == 0)
+RequestCpus=1
+Queue 1
+
+Universe = vanilla
+Executable = executable_name.exe
+Arguments = 75 100 1000000 8
+Log = logs/dor.log
+Output = dor$ (Process).out
+Error = dor$ (Process).error
+getenv = True
+should_transfer_files = Yes
+when_to_transfer_output = ON_EXIT_OR_EVICT
+transfer_input_files = spectrum100.dat
+transfer_output_files = primary_out_75_8_100.bin,scatter_75_8_100.bin
+on_exit_remove = (ExitCode == 0)
+RequestCpus=1
+Queue 1
+
+Universe = vanilla
+Executable = executable_name.exe
+Arguments = 75 100 1000000 10
+Log = logs/dor.log
+Output = dor$ (Process).out
+Error = dor$ (Process).error
+getenv = True
+should_transfer_files = Yes
+when_to_transfer_output = ON_EXIT_OR_EVICT
+transfer_input_files = spectrum100.dat
+transfer_output_files = primary_out_75_10_100.bin,scatter_75_10_100.bin
+on_exit_remove = (ExitCode == 0)
+RequestCpus=1
+Queue 1
+
+Universe = vanilla
+Executable = executable_name.exe
+Arguments = 75 120 1000000 4
+Log = logs/dor.log
+Output = dor$ (Process).out
+Error = dor$ (Process).error
+getenv = True
+should_transfer_files = Yes
+when_to_transfer_output = ON_EXIT_OR_EVICT
+transfer_input_files = spectrum120.dat
+transfer_output_files = primary_out_75_4_120.bin,scatter_75_4_120.bin
+on_exit_remove = (ExitCode == 0)
+RequestCpus=1
+Queue 1
+
+Universe = vanilla
+Executable = executable_name.exe
+Arguments = 75 120 1000000 6
+Log = logs/dor.log
+Output = dor$ (Process).out
+Error = dor$ (Process).error
+getenv = True
+should_transfer_files = Yes
+when_to_transfer_output = ON_EXIT_OR_EVICT
+transfer_input_files = spectrum120.dat
+transfer_output_files = primary_out_75_6_120.bin,scatter_75_6_120.bin
+on_exit_remove = (ExitCode == 0)
+RequestCpus=1
+Queue 1
+
+Universe = vanilla
+Executable = executable_name.exe
+Arguments = 75 120 1000000 8
+Log = logs/dor.log
+Output = dor$ (Process).out
+Error = dor$ (Process).error
+getenv = True
+should_transfer_files = Yes
+when_to_transfer_output = ON_EXIT_OR_EVICT
+transfer_input_files = spectrum120.dat
+transfer_output_files = primary_out_75_8_120.bin,scatter_75_8_120.bin
+on_exit_remove = (ExitCode == 0)
+RequestCpus=1
+Queue 1
+
+Universe = vanilla
+Executable = executable_name.exe
+Arguments = 75 120 1000000 10
+Log = logs/dor.log
+Output = dor$ (Process).out
+Error = dor$ (Process).error
+getenv = True
+should_transfer_files = Yes
+when_to_transfer_output = ON_EXIT_OR_EVICT
+transfer_input_files = spectrum120.dat
+transfer_output_files = primary_out_75_10_120.bin,scatter_75_10_120.bin
+on_exit_remove = (ExitCode == 0)
+RequestCpus=1
+Queue 1
+
+Universe = vanilla
+Executable = executable_name.exe
+Arguments = 90 60 1000000 4
+Log = logs/dor.log
+Output = dor$ (Process).out
+Error = dor$ (Process).error
+getenv = True
+should_transfer_files = Yes
+when_to_transfer_output = ON_EXIT_OR_EVICT
+transfer_input_files = spectrum60.dat
+transfer_output_files = primary_out_90_4_60.bin,scatter_90_4_60.bin
+on_exit_remove = (ExitCode == 0)
+RequestCpus=1
+Queue 1
+
+Universe = vanilla
+Executable = executable_name.exe
+Arguments = 90 60 1000000 6
+Log = logs/dor.log
+Output = dor$ (Process).out
+Error = dor$ (Process).error
+getenv = True
+should_transfer_files = Yes
+when_to_transfer_output = ON_EXIT_OR_EVICT
+transfer_input_files = spectrum60.dat
+transfer_output_files = primary_out_90_6_60.bin,scatter_90_6_60.bin
+on_exit_remove = (ExitCode == 0)
+RequestCpus=1
+Queue 1
+
+Universe = vanilla
+Executable = executable_name.exe
+Arguments = 90 60 1000000 8
+Log = logs/dor.log
+Output = dor$ (Process).out
+Error = dor$ (Process).error
+getenv = True
+should_transfer_files = Yes
+when_to_transfer_output = ON_EXIT_OR_EVICT
+transfer_input_files = spectrum60.dat
+transfer_output_files = primary_out_90_8_60.bin,scatter_90_8_60.bin
+on_exit_remove = (ExitCode == 0)
+RequestCpus=1
+Queue 1
+
+Universe = vanilla
+Executable = executable_name.exe
+Arguments = 90 60 1000000 10
+Log = logs/dor.log
+Output = dor$ (Process).out
+Error = dor$ (Process).error
+getenv = True
+should_transfer_files = Yes
+when_to_transfer_output = ON_EXIT_OR_EVICT
+transfer_input_files = spectrum60.dat
+transfer_output_files = primary_out_90_10_60.bin,scatter_90_10_60.bin
+on_exit_remove = (ExitCode == 0)
+RequestCpus=1
+Queue 1
+
+Universe = vanilla
+Executable = executable_name.exe
+Arguments = 90 80 1000000 4
+Log = logs/dor.log
+Output = dor$ (Process).out
+Error = dor$ (Process).error
+getenv = True
+should_transfer_files = Yes
+when_to_transfer_output = ON_EXIT_OR_EVICT
+transfer_input_files = spectrum80.dat
+transfer_output_files = primary_out_90_4_80.bin,scatter_90_4_80.bin
+on_exit_remove = (ExitCode == 0)
+RequestCpus=1
+Queue 1
+
+Universe = vanilla
+Executable = executable_name.exe
+Arguments = 90 80 1000000 6
+Log = logs/dor.log
+Output = dor$ (Process).out
+Error = dor$ (Process).error
+getenv = True
+should_transfer_files = Yes
+when_to_transfer_output = ON_EXIT_OR_EVICT
+transfer_input_files = spectrum80.dat
+transfer_output_files = primary_out_90_6_80.bin,scatter_90_6_80.bin
+on_exit_remove = (ExitCode == 0)
+RequestCpus=1
+Queue 1
+
+Universe = vanilla
+Executable = executable_name.exe
+Arguments = 90 80 1000000 8
+Log = logs/dor.log
+Output = dor$ (Process).out
+Error = dor$ (Process).error
+getenv = True
+should_transfer_files = Yes
+when_to_transfer_output = ON_EXIT_OR_EVICT
+transfer_input_files = spectrum80.dat
+transfer_output_files = primary_out_90_8_80.bin,scatter_90_8_80.bin
+on_exit_remove = (ExitCode == 0)
+RequestCpus=1
+Queue 1
+
+Universe = vanilla
+Executable = executable_name.exe
+Arguments = 90 80 1000000 10
+Log = logs/dor.log
+Output = dor$ (Process).out
+Error = dor$ (Process).error
+getenv = True
+should_transfer_files = Yes
+when_to_transfer_output = ON_EXIT_OR_EVICT
+transfer_input_files = spectrum80.dat
+transfer_output_files = primary_out_90_10_80.bin,scatter_90_10_80.bin
+on_exit_remove = (ExitCode == 0)
+RequestCpus=1
+Queue 1
+
+Universe = vanilla
+Executable = executable_name.exe
+Arguments = 90 100 1000000 4
+Log = logs/dor.log
+Output = dor$ (Process).out
+Error = dor$ (Process).error
+getenv = True
+should_transfer_files = Yes
+when_to_transfer_output = ON_EXIT_OR_EVICT
+transfer_input_files = spectrum100.dat
+transfer_output_files = primary_out_90_4_100.bin,scatter_90_4_100.bin
+on_exit_remove = (ExitCode == 0)
+RequestCpus=1
+Queue 1
+
+Universe = vanilla
+Executable = executable_name.exe
+Arguments = 90 100 1000000 6
+Log = logs/dor.log
+Output = dor$ (Process).out
+Error = dor$ (Process).error
+getenv = True
+should_transfer_files = Yes
+when_to_transfer_output = ON_EXIT_OR_EVICT
+transfer_input_files = spectrum100.dat
+transfer_output_files = primary_out_90_6_100.bin,scatter_90_6_100.bin
+on_exit_remove = (ExitCode == 0)
+RequestCpus=1
+Queue 1
+
+Universe = vanilla
+Executable = executable_name.exe
+Arguments = 90 100 1000000 8
+Log = logs/dor.log
+Output = dor$ (Process).out
+Error = dor$ (Process).error
+getenv = True
+should_transfer_files = Yes
+when_to_transfer_output = ON_EXIT_OR_EVICT
+transfer_input_files = spectrum100.dat
+transfer_output_files = primary_out_90_8_100.bin,scatter_90_8_100.bin
+on_exit_remove = (ExitCode == 0)
+RequestCpus=1
+Queue 1
+
+Universe = vanilla
+Executable = executable_name.exe
+Arguments = 90 100 1000000 10
+Log = logs/dor.log
+Output = dor$ (Process).out
+Error = dor$ (Process).error
+getenv = True
+should_transfer_files = Yes
+when_to_transfer_output = ON_EXIT_OR_EVICT
+transfer_input_files = spectrum100.dat
+transfer_output_files = primary_out_90_10_100.bin,scatter_90_10_100.bin
+on_exit_remove = (ExitCode == 0)
+RequestCpus=1
+Queue 1
+
+Universe = vanilla
+Executable = executable_name.exe
+Arguments = 90 120 1000000 4
+Log = logs/dor.log
+Output = dor$ (Process).out
+Error = dor$ (Process).error
+getenv = True
+should_transfer_files = Yes
+when_to_transfer_output = ON_EXIT_OR_EVICT
+transfer_input_files = spectrum120.dat
+transfer_output_files = primary_out_90_4_120.bin,scatter_90_4_120.bin
+on_exit_remove = (ExitCode == 0)
+RequestCpus=1
+Queue 1
+
+Universe = vanilla
+Executable = executable_name.exe
+Arguments = 90 120 1000000 6
+Log = logs/dor.log
+Output = dor$ (Process).out
+Error = dor$ (Process).error
+getenv = True
+should_transfer_files = Yes
+when_to_transfer_output = ON_EXIT_OR_EVICT
+transfer_input_files = spectrum120.dat
+transfer_output_files = primary_out_90_6_120.bin,scatter_90_6_120.bin
+on_exit_remove = (ExitCode == 0)
+RequestCpus=1
+Queue 1
+
+Universe = vanilla
+Executable = executable_name.exe
+Arguments = 90 120 1000000 8
+Log = logs/dor.log
+Output = dor$ (Process).out
+Error = dor$ (Process).error
+getenv = True
+should_transfer_files = Yes
+when_to_transfer_output = ON_EXIT_OR_EVICT
+transfer_input_files = spectrum120.dat
+transfer_output_files = primary_out_90_8_120.bin,scatter_90_8_120.bin
+on_exit_remove = (ExitCode == 0)
+RequestCpus=1
+Queue 1
+
+Universe = vanilla
+Executable = executable_name.exe
+Arguments = 90 120 1000000 10
+Log = logs/dor.log
+Output = dor$ (Process).out
+Error = dor$ (Process).error
+getenv = True
+should_transfer_files = Yes
+when_to_transfer_output = ON_EXIT_OR_EVICT
+transfer_input_files = spectrum120.dat
+transfer_output_files = primary_out_90_10_120.bin,scatter_90_10_120.bin
+on_exit_remove = (ExitCode == 0)
+RequestCpus=1
+Queue 1
+
