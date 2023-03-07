@@ -35,7 +35,8 @@ done
 for i in $list
 do
     echo ${list[*]}
-    echo -e ./MidtermData/midterm2023/${list[2]} | git rev-list --all --count
+    Total=./MidtermData/midterm2023/${list[2]} | git rev-list --all --count
+    echo $Total
     
 done
 
