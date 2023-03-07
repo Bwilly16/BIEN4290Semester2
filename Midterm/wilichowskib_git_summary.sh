@@ -3,6 +3,14 @@
 #Date: 3/07/2023
 #Purpose: Git Midterm
 
+#remove folder each run 
+rm -rf MidtermData 
+
+#Make folder
+mkdir MidtermData
+
+#copy contents
+cp -r $1 ./MidtermData
 
 #Store file path into variable
 File_path=$1
@@ -15,10 +23,22 @@ elif [ "$#" -gt 1 ]; then
     echo "Bro, thats too many arguments"
 fi
 
-#printing out each file within the midterm folder
-for entry in `ls $File_path`; do
-    #echo $entry
-    file1=$File_path/$entry
-    echo $file1
+c=0
+for file in $(ls ./MidtermData/midterm2023/)
+do
+	#echo "Looking at $file..." 
+    list[$c]=$file
+    c=$(expr $c + 1)
+    
 done
+
+for i in $list
+do
+    echo ${list[*]}
+    echo -e ./MidtermData/midterm2023/${list[2]} | git rev-list --all --count
+    
+done
+
+
+
 
