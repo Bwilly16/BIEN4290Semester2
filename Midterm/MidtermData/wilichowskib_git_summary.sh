@@ -4,6 +4,8 @@
 #Purpose: Git Midterm
 
 rm summary.txt
+rm gitlog.txt
+rm date.txt
 rm -rf ./MidtermData # This kind of thing gets those last ~8 pts
 mkdir MidtermData
 cp -r /lab/bien4290/midterm2023/* ./MidtermData
@@ -36,6 +38,7 @@ do
         cd Eye-Motion-Repair
         #if git file exitst
         TCommits=$(git rev-list --all --count)
+        Date=$(git log)
         #else echo git file does not exist
         
         
@@ -44,6 +47,7 @@ do
         cd ../Metricks_OCVL
         #if git file exists
         TCommits1=$(git rev-list --all --count)
+        Date1=$(git log)
         #else echo git file does not exist
         
 
@@ -52,6 +56,7 @@ do
         cd ../project1
         #if git file exists
         TCommits2=$(git rev-list --all --count)
+        Date2=$(git log)
         cd ..  
         #else echo git file does not exist
     fi
@@ -60,8 +65,56 @@ do
     echo "Total commits in Eye-Motion-Repair: $TCommits" >> summary.txt
     echo "Total commits in Metricks_OCVL: $TCommits1" >> summary.txt
     echo "Total commits in project1: $TCommits2" >> summary.txt
+
+
+    #Echoing the log file to be able to parse for dates
+    echo "Git log for Eye-Motion-Repair" >> gitlog.txt
+    echo "$Date" >> gitlog.txt
+
+    echo "Git log for Metricks" >> gitlog.txt
+    echo "$Date1" >> gitlog.txt
+
+    #for my sanity I am not gonna do this since it doesnt have a git file
+    #echo "Git log for project1" >> gitlog.txt
+    #echo $Date >> gitlog.txt
+
 done
 
+readthefile="./gitlog.txt"
+cat $readthefile | while read LINE; 
+do
+    #myDate=$(echo $LINE | cut -f4 -d:)
+    myDate=$(echo $LINE | grep "Date:" | cut -d ' ' -f 2-6)  #prints only columns 2-6, without the date text and the weird end character
+    echo $myDate >> date.txt
+    sed -i '/^$/d' date.txt #removes blank lines from date file
+
+done
+
+
+
+
+
+
+
+#Figure out the min, avg, max, between commits in days, hours, minutes, and seconds.
+
+    
+#cat ./gitlog.txt | grep "Date" | xa
+
+
+
+
+
+
+
+
+
+
+
+
+
+#while loop with while read line, convert each line to all seconds
+#current line minus previous, set to variable, do the same till end
 
 
 

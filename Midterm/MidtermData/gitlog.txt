@@ -1,0 +1,902 @@
+Git log for Eye-Motion-Repair
+commit 7cd5cb72bd5e16ebc5bc1bdc8d2bf91d94990068
+Author: Robert F Cooper <robertfcoop@gmail.com>
+Date:   Fri Jan 13 15:01:47 2023 -0600
+
+    Added dewarping and torstion removal for the SabLab.
+
+commit adafb2fc6c5a2e04ac8cf593549334f9407d40c7
+Author: Robert F Cooper <robertfcoop@gmail.com>
+Date:   Tue Nov 15 22:40:05 2022 -0600
+
+    First stab at doing a refresh of the eye motion repair scripts- for multiple labs.
+    Major concerns about the actual outputs of the SR_AVIs from Demotion.
+
+commit 65b44786236230a801bd706ee82c1463b5eb8886
+Merge: b5586b7 c2effc6
+Author: Robert F Cooper <Eurybiadan@users.noreply.github.com>
+Date:   Tue Nov 15 19:04:12 2022 -0600
+
+    Merge pull request #2 from waivs/main
+    
+    Updates for python3.x
+
+commit c2effc67c52379e6075bcac41b999222729b5945
+Author: J.D. Rogers <rogersjd@gmail.com>
+Date:   Tue Nov 15 16:53:12 2022 -0600
+
+    Normalize all the line endings
+
+commit 9eb99e8e90832613e98f36f520a857c68f5c40bc
+Author: J.D. Rogers <rogersjd@gmail.com>
+Date:   Tue Nov 15 14:07:58 2022 -0600
+
+    updated to work with python3.x, tested on python3.9 --JDR
+
+commit b5586b7f34c9d37f0922cfe533d8009736a60da2
+Author: Robert F Cooper <robertfcoop@gmail.com>
+Date:   Thu Mar 21 15:04:29 2019 -0400
+
+    Added code to gently smooth the output vectors
+    
+    This handles random jumps in the motion estimations better.
+
+commit a6c3247a45e9740f29eaf4fad079ffe74c1e57b1
+Author: Robert F Cooper <robertfcoop@gmail.com>
+Date:   Thu Mar 21 13:46:33 2019 -0400
+
+    Auto stash before merge of "master" and "origin/master"
+
+commit 7f602fba619e635e23495fcaae49850d157b9326
+Author: Robert F Cooper <robertfcoop@gmail.com>
+Date:   Thu Feb 14 11:50:03 2019 -0500
+
+    Actually add full fix. Oops.
+
+commit 3142b17eac1e2482fbd462f77d607a19c0e12ba8
+Author: Robert F Cooper <robertfcoop@gmail.com>
+Date:   Thu Feb 14 09:44:48 2019 -0500
+
+    Added ability to skip the desinusoiding.
+
+commit 43add51c120e57e0425c93f34c70dda27bfac819
+Author: Robert F Cooper <robertfcoop@gmail.com>
+Date:   Wed Aug 1 09:42:07 2018 -0400
+
+    Fixed error in crop region calculation, migration to pycharm
+    
+    -Previously, largest slow axis and smallest slow axis were calculated under the assumption of a single block of translation data. Given that one row of the framemotion matrix can contain several chunks of translation data from a single with no assumption about their order (they are stored in dicts), the whole matrix is scanned for min and max values.
+
+commit 99a5dbe1c041020a82acd54c16833af892192ce0
+Author: Robert F Cooper <robertfcoop@gmail.com>
+Date:   Thu Jul 19 15:37:27 2018 -0400
+
+    Removed old debug messages.
+
+commit 1fe077e06d04fbcc62a06ebb2498ddc95539ba07
+Author: Robert F Cooper <robertfcoop@gmail.com>
+Date:   Fri Jul 13 09:45:39 2018 -0400
+
+    Bug fixes for the piecewise method of repairing distortion.
+
+commit b030c07f015fbee5c02a08094afd6568caf40b45
+Author: Robert F Cooper <robertfcoop@gmail.com>
+Date:   Fri Jul 13 08:29:50 2018 -0400
+
+    Updated dmp motion info extraction to use more for any given frame
+    
+    -Improved on piecewise method generalizability
+    -Improved ROI size handling for multiple num_frames per single dmp
+
+commit 1f0cae4bb01918144e3be9c0ec27d1795ff4e87a
+Author: Robert F Cooper <robertfcoop@gmail.com>
+Date:   Thu Jul 12 10:15:00 2018 -0400
+
+    Added transparency and no-selection-required densinusoid files
+    
+    Instead of having black regions where the image was adjusted, EMR now automatically makes those regions transparent. This will be useful when creating montages with these files, as the edges of repaired images will no longer look odd.
+    
+    EMR no longer requires you to pick the the desinusoid file. This means you can run the repair process on a mixed folder of 1.75, or 1.00 FOV files all at once, instead of separating them all out.
+
+commit f49d377bb2c9d5fe3dfcf74de00888b001aa7e60
+Author: Robert F Cooper <Eurybiadan@users.noreply.github.com>
+Date:   Wed May 23 10:57:41 2018 -0400
+
+    Quick title update for the readme.
+
+commit 9e12f4501860e1f2dc367f0d57fb49473dc695ac
+Author: Robert F Cooper <rfcooper@sas.upenn.edu>
+Date:   Wed May 23 10:50:34 2018 -0400
+
+    Initial commit of actual code. Added GPL 3.0 license, tweaked comments to be more informative.
+
+commit 50344f63440933466d4d83da4829df345d1e8531
+Author: Robert F Cooper <Eurybiadan@users.noreply.github.com>
+Date:   Wed May 23 09:55:51 2018 -0400
+
+    Initial commit
+Git log for Metricks
+commit 19b47e04df03ef1ec968830861c3a25d586d7b8a
+Author: Robert F Cooper <robert.cooper@marquette.edu>
+Date:   Tue Jan 24 11:27:38 2023 -0600
+
+    Application of bug fixes from base script to MAP script.
+
+commit 416f71e86169ea50e344ebb33b21511e44e75d2c
+Author: Jenna Grieshop <jengriesh@gmail.com>
+Date:   Mon Jan 23 10:59:07 2023 -0600
+
+    Minor fix for indexing issue
+    
+    Now works in the case of the axial length info is the only line or the last line in the LUT
+
+commit 640d627519fcc51db8ee465cdedc5ba852e5c93e
+Author: Robert F Cooper <robert.cooper@marquette.edu>
+Date:   Mon Jan 23 09:39:38 2023 -0600
+
+    Minor fix for indexing issue. Removed comments and bugged code.
+
+commit b3b030d79f63a23c49b7551a665998fbdb318e3c
+Merge: ea03550 167a854
+Author: Robert F Cooper <robert.cooper@marquette.edu>
+Date:   Mon Jan 23 07:53:53 2023 -0600
+
+    Merge branch 'master' of https://github.com/OCVL/Metricks
+
+commit ea035509318d4f5e034298ef2a25884ba65759fe
+Author: Robert F Cooper <robert.cooper@marquette.edu>
+Date:   Mon Jan 23 07:53:45 2023 -0600
+
+    Fixed bugs relating namespace collision and use of parens for a cell.
+
+commit 167a8541b829d0b5353e2507e8018e8e3cfd5d05
+Author: Jenna Grieshop <jengriesh@gmail.com>
+Date:   Wed Dec 7 09:28:57 2022 -0600
+
+    Bug fix - axial length
+    
+    Axial length is now taken from the correct eye if there are two eyes from the same subject ID in the set. Previously just selected the axial length of the eye listed first for the subject ID
+
+commit f1cafa9205e1e24a3ecb966d94555a428b132035
+Merge: 2e0c912 5d3f57a
+Author: Robert F Cooper <robert.cooper@marquette.edu>
+Date:   Wed Dec 7 08:56:14 2022 -0600
+
+    Merge branch '1-map-script-doesnt-properly-change-the-window-size-with-individual-cone-position'
+
+commit 5d3f57ac53a0281d09ce458389b6896c84130f91
+Author: Robert F Cooper <robert.cooper@marquette.edu>
+Date:   Wed Dec 7 08:55:21 2022 -0600
+
+    Fixed missing indices on the pixelwindowsize to ensure it changes with position. Fixes #1.
+
+commit 2e0c912f7862218db1ed7b71276bab20bf85e766
+Author: Robert F Cooper <robert.cooper@marquette.edu>
+Date:   Wed Dec 7 08:51:37 2022 -0600
+
+    Updated nomenclature to match the Cooper et al 2016. Each metric is preceeded by what type of coordinates (Voronoi BOUND vs all cells/UNBOUND) they were calculated from. I hope to reduce confusion with this change. closes #2.
+
+commit efd3a17e3c2009e30c2640369c5e7a51d5ff671c
+Author: Robert F Cooper <robert.cooper@marquette.edu>
+Date:   Thu Mar 24 12:09:53 2022 -0500
+
+    Refactoring to keep master clean.
+
+commit 4ff257e1183d0374d9c317fe3919899629541393
+Author: Robert F Cooper <robert.cooper@marquette.edu>
+Date:   Thu Mar 24 12:03:57 2022 -0500
+
+    Removed DFT code.
+
+commit 97bacf1ea792184b8ff6cb0b9da059e9da87a1b6
+Author: DESKTOP-GFAOF7T\Robert F Cooper <robertfcoop@gmail.com>
+Date:   Mon Jan 10 22:06:29 2022 -0600
+
+    Fixes for displaying individual differences in plots.
+
+commit 4c3d3a99dfa29a8a4e13a3eb4dc99bce09fd3542
+Author: Robert F Cooper <robert.cooper@marquette.edu>
+Date:   Mon Jan 10 21:28:51 2022 -0600
+
+    Final updates for paper. Separate aggregation script to ease analysis.
+
+commit 5dce1d11df4bdce8f0471705399c32ded49020cf
+Author: DESKTOP-GFAOF7T\Robert F Cooper <robertfcoop@gmail.com>
+Date:   Tue Dec 28 13:30:37 2021 -0600
+
+    Added scaling and fovea merging to the analysis.
+
+commit 059bdb00b662fc858b28f767f6fd3c73dfeb3388
+Author: Robert F Cooper <robert.cooper@marquette.edu>
+Date:   Mon Dec 27 10:06:59 2021 -0600
+
+    DFT Refactoring and robustness changes.
+
+commit cfff4e0eb586a3983ee97667b1027efb21032d8c
+Author: DESKTOP-GFAOF7T\Robert F Cooper <robertfcoop@gmail.com>
+Date:   Thu Oct 28 15:59:16 2021 -0500
+
+    Further merging work.
+
+commit 29ffbdace720f484d79380fab7159fe9fa1a24c3
+Author: Robert F Cooper <robert.cooper@marquette.edu>
+Date:   Wed Oct 27 14:48:55 2021 -0500
+
+    Updates to DFT analysis to work on merging.
+
+commit fbaf2e9658f2427bfb80691d215c20dfd5ec5c9c
+Merge: 7a4710c 98020d1
+Author: Robert F Cooper <robert.cooper@marquette.edu>
+Date:   Tue Oct 26 19:30:59 2021 -0500
+
+    Merge branch 'python_conversion' of https://github.com/Eurybiadan/Metricks into python_conversion
+
+commit 7a4710c13a01780b8dd820694fc4968bc067378b
+Author: Robert F Cooper <robert.cooper@marquette.edu>
+Date:   Tue Oct 26 19:30:53 2021 -0500
+
+    Made some adjustments to the roi stepping.
+
+commit 98020d1d8b65a6265a3572688cb5a6b689c0be9e
+Author: DESKTOP-GFAOF7T\Robert F Cooper <robertfcoop@gmail.com>
+Date:   Tue Oct 26 19:25:30 2021 -0500
+
+    Maps now based on Voronoi bounds.
+
+commit e328a4a748a4e284963969d38395af50463a072f
+Merge: d938733 3289e24
+Author: Robert F Cooper <robert.cooper@marquette.edu>
+Date:   Fri Oct 8 11:57:53 2021 -0500
+
+    Merge branch 'python_conversion' of https://github.com/Eurybiadan/Metricks into python_conversion
+
+commit d9387339305c60ffaa6af06178f650c69b52795b
+Author: Robert F Cooper <robert.cooper@marquette.edu>
+Date:   Fri Oct 8 11:57:47 2021 -0500
+
+    Updates to DFT aggregator
+
+commit 3289e248c761c77f049575692114c0fb50e30c2d
+Author: DESKTOP-GFAOF7T\Robert F Cooper <robertfcoop@gmail.com>
+Date:   Fri Oct 8 11:46:08 2021 -0500
+
+    Work towards Metricks python conversion. Updating of parameters for montage merge test.
+
+commit 530a573b5487545e74486fe9078fc619f4474630
+Author: Robert F Cooper <robert.cooper@marquette.edu>
+Date:   Thu Sep 9 15:58:50 2021 -0500
+
+    Initial setup and arrangement of GUI elements (Qt based).
+
+commit 7011abac08a816cf62aada3a41bd646068085ecf
+Author: DESKTOP-GFAOF7T\Robert F Cooper <robertfcoop@gmail.com>
+Date:   Wed Sep 8 22:11:57 2021 -0500
+
+    First commit for the Python Metricks conversion.
+
+commit ad6116aaded1bfdb8131df41c0f10f81bfb7bbde
+Merge: fe8e657 463c5a8
+Author: DESKTOP-GFAOF7T\Robert F Cooper <robertfcoop@gmail.com>
+Date:   Wed Sep 8 21:10:15 2021 -0500
+
+    Merge branch 'dev'
+    
+    # Conflicts:
+    #       DFT-Based-Spacing/fit_fourier_spacing.m
+    #       DFT-Based-Spacing/fourierFit.m
+
+commit 463c5a8abbd16bd00db0e5e85a303aff7acbcb4e
+Author: Robert F Cooper <robert.cooper@marquette.edu>
+Date:   Tue Aug 24 15:58:24 2021 -0500
+
+    Modifications to DFT-based spacing for full-montage analysis.
+
+commit 154fc9cd2726fd4f2c34570553e3da1cf83cdacc
+Author: Robert F Cooper <robert.cooper@marquette.edu>
+Date:   Fri Feb 12 10:22:08 2021 -0600
+
+    Added auto-restart capability.
+
+commit fe8e6574a7879fd32d0d972b3dcf78ea11316d0c
+Author: Robert F Cooper <robert.cooper@marquette.edu>
+Date:   Thu Jan 28 09:52:29 2021 -0600
+
+    Fixed bug in uncorrected ICD, and updated git to ignore asv files.
+
+commit 02e092593a4ec4883bfe5cc529925606d2781f0b
+Author: DESKTOP-GFAOF7T\Robert F Cooper <robertfcoop@gmail.com>
+Date:   Wed Jan 13 09:19:57 2021 -0600
+
+    Ignoring asv files.
+
+commit 4d193165e41c20a3b9924f15498f85bf09a50335
+Author: DESKTOP-GFAOF7T\Robert F Cooper <robertfcoop@gmail.com>
+Date:   Wed Jan 13 09:19:34 2021 -0600
+
+    Tweaks to montage analysis to allow them to be run in series.
+
+commit 829517f2ffb9967e397f922e1d3c2317a3945b21
+Author: DESKTOP-GFAOF7T\Robert F Cooper <robertfcoop@gmail.com>
+Date:   Thu Jan 7 22:04:37 2021 -0600
+
+    Bug fixes for mean and median based DFT spacing analyses for montages.
+
+commit 84fdd9e48323a65f8b8f1edd964f11321ac92907
+Author: DESKTOP-GFAOF7T\Robert F Cooper <robertfcoop@gmail.com>
+Date:   Thu Jan 7 13:20:45 2021 -0600
+
+    Fixing a regression bug.
+
+commit 494128089f3c490e5892f32b18b28b274ce8454a
+Author: DESKTOP-GFAOF7T\Robert F Cooper <robertfcoop@gmail.com>
+Date:   Thu Jan 7 11:26:58 2021 -0600
+
+    Added basic combination ability for median
+
+commit 883254d0f3acb40ae0e46ce4e960657360c1cd91
+Author: DESKTOP-GFAOF7T\Robert F Cooper <robertfcoop@gmail.com>
+Date:   Thu Sep 10 13:56:52 2020 -0500
+
+    Added a median-based version of the fit_fourier_spacing map creator. Is significantly more robust to outliers.
+
+commit b1524e029e5d711410ad6a7b1b715e7d05389b31
+Author: DESKTOP-GFAOF7T\Robert F Cooper <robertfcoop@gmail.com>
+Date:   Thu Sep 10 11:39:04 2020 -0500
+
+    Minor updates to Metricks functions for bug fixes.
+
+commit 85f96c039f9201593cfcc38fe3b7b575cb283924
+Author: DESKTOP-GFAOF7T\Robert F Cooper <robertfcoop@gmail.com>
+Date:   Fri Mar 27 13:46:40 2020 -0500
+
+    Bugfix for DFT Aggregator- standard deviation maps are now calculated correctly.
+
+commit 6f9bae89819afa71c8a05bd5f586c638f7b44f79
+Author: Robert F Cooper <rfcooper@sas.upenn.edu>
+Date:   Tue May 28 09:12:47 2019 -0400
+
+    Bug fix for old code that somehow didn't get commented out.
+
+commit e585c54987c19a8dfddba8f2c27e2fb246f40b49
+Author: Robert F Cooper <rfcooper@sas.upenn.edu>
+Date:   Tue Apr 30 18:09:07 2019 -0400
+
+    More QoL commenting.
+
+commit 5ae895d2c163bcd7f4246fadefc91fdd78449974
+Author: Robert F Cooper <rfcooper@sas.upenn.edu>
+Date:   Tue Apr 30 17:35:55 2019 -0400
+
+    Added copyright to all frontend code, updated readme.
+
+commit 1c3d5dd2c21f2d2ede25909bac60de0098ed1987
+Author: Robert F Cooper <rfcooper@sas.upenn.edu>
+Date:   Mon Apr 29 18:20:53 2019 -0400
+
+    Renamed DFT folder.
+
+commit aad8388abb9e998acec2890908897a615030f26b
+Merge: 983cd74 015a6a2
+Author: Robert F Cooper <rfcooper@sas.upenn.edu>
+Date:   Mon Apr 29 18:19:18 2019 -0400
+
+    Merge branch 'master' of https://github.com/Eurybiadan/Metricks
+
+commit 983cd7454f378a14aba2088cf9c737ab8ccba96d
+Merge: fcb46e0 15490d8
+Author: Robert F Cooper <rfcooper@sas.upenn.edu>
+Date:   Mon Apr 29 18:18:53 2019 -0400
+
+    Merge branch 'dev'
+    
+    # Conflicts:
+    #       DFT-Based-Spacing[UNVALIDATED]/Montage_DFT_Analysis.m
+    #       DFT-Based-Spacing[UNVALIDATED]/fit_fourier_spacing.m
+    #       DFT-Based-Spacing[UNVALIDATED]/fourierFit.m
+    #       DFT-Based-Spacing[UNVALIDATED]/fourierFit_v2.m
+    #       DFT-Based-Spacing[UNVALIDATED]/imcart2pseudopolar.m
+
+commit 15490d8dbe0978a2c344f7ad69e8bc837ac60ce5
+Author: Robert F Cooper <robertfcoop@gmail.com>
+Date:   Thu Apr 11 12:37:59 2019 -0400
+
+    Changes to Aggregator for ARVO.
+
+commit 0c50530abc093a0bbef1b43968e93215cf68a03f
+Author: Robert F Cooper <robertfcoop@gmail.com>
+Date:   Wed Apr 10 09:41:03 2019 -0400
+
+    Code cleanup.
+
+commit 338056d17c9ff65fd812e513f8e3295632948b95
+Author: Robert F Cooper <robertfcoop@gmail.com>
+Date:   Tue Apr 9 09:49:16 2019 -0400
+
+    Updated foveal masking to be more reasonable.
+    
+    -Updated output of fit_fourier spacing to be more informative.
+    -Added supersampling to residual peak finding
+
+commit 286300f80827900edaea62bbb288d31fd315bb0b
+Author: Robert F Cooper <robertfcoop@gmail.com>
+Date:   Tue Apr 9 09:47:28 2019 -0400
+
+    Created a function to remake the fire colormap from paper
+
+commit c170a70f7ec2cffbd2caf692e3631ecf374fda35
+Author: Robert F Cooper <rfcooper@sas.upenn.edu>
+Date:   Tue Apr 2 11:16:16 2019 -0400
+
+    Added left/right as well as up/down analyses to fourierFit.
+    Adjusted the defaults for imcart2pseudopolar
+
+commit f77134b6318fad2f8d0eecead01865c1b562a9c8
+Author: Robert F Cooper <robertfcoop@gmail.com>
+Date:   Tue Dec 11 15:28:07 2018 -0500
+
+    Reset to no cropping for Metricks.
+
+commit 0a2e624c52dbb6bf80083ccdfa7381007f2b4a14
+Author: Robert F Cooper <robertfcoop@gmail.com>
+Date:   Tue Dec 11 15:27:24 2018 -0500
+
+    Properly exclude the DC term from all DFT supersampling.
+
+commit f510ddead8b571d8d5042063b9087c0ee36008f2
+Author: Robert F Cooper <robertfcoop@gmail.com>
+Date:   Tue Dec 11 14:37:59 2018 -0500
+
+    Added interpolation method from https://arxiv.org/pdf/1401.2636.pdf
+    
+    Allows the DFT to represent a finer scale while minimizing error.
+
+commit 57e20501e848853067ed4e7bb3f922214a51ad84
+Author: Robert F Cooper <robertfcoop@gmail.com>
+Date:   Tue Dec 11 14:37:22 2018 -0500
+
+    Properly bind limits of roi sizes.
+
+commit c601fdbb43b83f704c2a0b833c5b24a3a69736db
+Author: Robert F Cooper <robertfcoop@gmail.com>
+Date:   Thu Dec 6 14:57:46 2018 -0500
+
+    Reverted peak finding as it was unreliable.
+
+commit 7558755300fb6091fec9d3832b26b67d03a26548
+Author: Robert F Cooper <robertfcoop@gmail.com>
+Date:   Thu Dec 6 14:05:03 2018 -0500
+
+    Added additional degree of freedom to fits (exponential)
+    
+    Handles more eccentricity shapes better.
+
+commit 58b7a8e515ebec4ddd21947518f1f265829a2d5d
+Author: Robert F Cooper <robertfcoop@gmail.com>
+Date:   Wed Dec 5 13:10:28 2018 -0500
+
+    Removed fovea-finding requirement for most montages.
+
+commit d615eae657f66debd39b5514c482a90f8393fad7
+Author: Robert F Cooper <robertfcoop@gmail.com>
+Date:   Tue Dec 4 13:56:43 2018 -0500
+
+    Rescaled x axis for fitting to improve stability
+
+commit d60b58d19872555817135c5062b6bda66e9ed0a6
+Author: Robert F Cooper <robertfcoop@gmail.com>
+Date:   Tue Dec 4 11:24:01 2018 -0500
+
+    Algorithm robustness tweaks.
+
+commit a609ba9a57382c39abf6de8cd2299e2f0086a952
+Author: Robert F Cooper <robertfcoop@gmail.com>
+Date:   Wed Nov 28 13:23:38 2018 -0500
+
+    Minor tweaks to algorithm and aggregation
+    
+    -Fixed so that we output ICD, not row spacing, by default
+    -Fixed so that quality measurements are more representative
+    -Fixed plots so that it always shows precisely the location that we chose (was off by 1)
+    -Added fit handling code for cases where the first datapoint isn't higher than the rest, leading to initial conditions which "touched" the original curve and causing poor fits.
+    -Fixed a boatload of aggregation issues and added density aggregation.
+
+commit def76d59d1bce74fb16197f196491039c27e8f40
+Author: Robert F Cooper <robertfcoop@gmail.com>
+Date:   Wed Nov 21 11:07:51 2018 -0500
+
+    Added ICD calculations more places
+    
+    Tweaked quality calculations to be more conservative.
+
+commit ecc2de9cbe6b68cd24a2719d66c943411e857f8d
+Author: Robert F Cooper <rfcooper@sas.upenn.edu>
+Date:   Tue Nov 20 20:50:37 2018 -0500
+
+    Variable name change.
+
+commit d1bbe1279913e88df6df49bd9ce92432129a2be6
+Author: Robert F Cooper <rfcooper@sas.upenn.edu>
+Date:   Tue Nov 20 20:49:40 2018 -0500
+
+    Made adjustments to explicitly enhance row spacing numbers.
+
+commit 4d5bad0bfea6147d4f11d8f33c87b9a66e6c6985
+Author: Robert F Cooper <robertfcoop@gmail.com>
+Date:   Tue Nov 20 15:42:49 2018 -0500
+
+    Improved ROI location finder.
+    
+    Added boundary conditions to fourierFit
+
+commit ac6dfa11fa57bc84be285d482d7aca684e8c725c
+Author: Robert F Cooper <robertfcoop@gmail.com>
+Date:   Thu Nov 15 15:16:04 2018 -0500
+
+    Beginning work on auto-ROI localizing.
+
+commit a6e83e4fc3574b5d627feaf72c0bfc9e90c7453e
+Author: Robert F Cooper <robertfcoop@gmail.com>
+Date:   Wed Nov 14 15:42:56 2018 -0500
+
+    Updated scaling to occur at DFT extraction phase.
+
+commit aef0209a1921dca94fa6413354a878c95e8d646d
+Author: Robert F Cooper <robertfcoop@gmail.com>
+Date:   Wed Nov 14 15:23:45 2018 -0500
+
+    Now always outputs the LUT if loaded.
+
+commit 1a58e9167d0987bed92c289e4c028bad52006564
+Author: Robert F Cooper <robertfcoop@gmail.com>
+Date:   Wed Nov 14 15:23:25 2018 -0500
+
+    Added minimum possible detected modal spacing.
+
+commit c6c3f29e0faa32009c20f262180ddaa85ac4e3aa
+Author: Robert F Cooper <robertfcoop@gmail.com>
+Date:   Mon Nov 12 18:05:14 2018 -0500
+
+    Added scaling calculation function.
+
+commit 06b00713e647bc19b038608bf95da325b52a5d5c
+Author: Robert F Cooper <robertfcoop@gmail.com>
+Date:   Thu Nov 8 11:33:40 2018 -0500
+
+    Switched to averaging across subjects instead of across all available data.
+
+commit 62fde27731a432ba363d9fe84480bd478ada34a5
+Author: Robert F Cooper <robertfcoop@gmail.com>
+Date:   Thu Nov 8 10:37:36 2018 -0500
+
+    Modernized the Montage DFT Analysis and created a DFT Aggregator.
+
+commit 3f5e09dbdfca9047cbf8027530c50d68b2c4d1b7
+Author: Robert F Cooper <robertfcoop@gmail.com>
+Date:   Tue Aug 28 08:54:10 2018 -0400
+
+    Tweaks to masking for fovea finding.
+    
+    Now requests the user to select the foveal region to avoid any weird edge effects.
+
+commit 914b1e76ad0595beb4238cddcada499ca2e7ea84
+Author: Robert F Cooper <rfcooper@sas.upenn.edu>
+Date:   Tue Aug 21 07:45:34 2018 -0400
+
+    Switched to using smoothing splines instead of high-grade median filtering to better handle edge cases.
+
+commit dcf7282663ce66b215081571dd529081d77ccdf2
+Author: Robert F Cooper <robertfcoop@gmail.com>
+Date:   Mon Aug 20 13:14:00 2018 -0400
+
+    Algorithm robustness fixes.
+    
+    -Better handle edge cases by changing peak detection and gradient detection
+
+commit 8241f209c954b570a22a4ea13677936a0434aaa9
+Author: Robert F Cooper <robertfcoop@gmail.com>
+Date:   Fri Aug 17 15:11:17 2018 -0400
+
+    Finalized outputs of DFT montage analysis.
+    
+    -To mask out unreliable fovea, use a fit ellipse and smoothing spline combo.
+
+commit 51dc2928852d67144ab5f8d61dc9dca4e4d3aa4c
+Author: Robert F Cooper <robertfcoop@gmail.com>
+Date:   Thu Aug 16 15:15:34 2018 -0400
+
+    Fixed infinite loop!
+
+commit 8766cfa02fa8b4f92b0c09139c9bfb42d7989044
+Author: Robert F Cooper <robertfcoop@gmail.com>
+Date:   Thu Aug 16 08:56:55 2018 -0400
+
+    Added better (existant) low-coordinate (<2) handling
+
+commit 50a9a812d83353f0d83212d61e188349c0728f5c
+Author: Robert F Cooper <robertfcoop@gmail.com>
+Date:   Fri Aug 3 12:45:14 2018 -0400
+
+    -Fixed DFT equation
+    
+    -Now correctly converts the DFT row spacing to the density.
+    -Changes to dft output for paper writing.
+
+commit 86fc4f107f2717c97475145f0f4216aeec56b867
+Author: Robert F Cooper <robertfcoop@gmail.com>
+Date:   Fri Jun 15 10:48:02 2018 -0400
+
+    Tweaks to error DFT calculation
+    
+    -Also modified output to enable direct tif image writing
+
+commit ac56857a34a55c579d849033c156d1bf048ac1ca
+Author: Robert F Cooper <rfcooper@sas.upenn.edu>
+Date:   Fri May 25 14:02:58 2018 -0400
+
+    - Added a better "quality" measures by multiplying the existing fit quality ratio by peak/cliff sharpness
+    - Testing better combination of sum maps from across images.
+
+commit ae0e178f1c52ed86643bec8cd487f0640e64f9b1
+Author: Robert F Cooper <rfcooper@sas.upenn.edu>
+Date:   Wed May 23 13:40:43 2018 -0400
+
+    Added dynamic window sizing to the mapping section of the mosaic metrics software.
+
+commit f1339826a71bd15c38e5a584002720e9b2b0e2f6
+Author: DESKTOP-GFAOF7T\Robert F Cooper <robertfcoop@gmail.com>
+Date:   Tue May 8 19:30:56 2018 -0400
+
+    Now outputs the min and max value locations.
+
+commit 6fb4673ceffb68295fbec9a08be8431453307bb2
+Author: Robert F Cooper <robertfcoop@gmail.com>
+Date:   Tue May 8 08:53:55 2018 -0400
+
+    Tweaks to output of MAP script.
+
+commit 40bb68aca35009c418941a33a1285e999cfac2b3
+Merge: e3eaed8 cc113a5
+Author: Robert F Cooper <rfcooper@sas.upenn.edu>
+Date:   Wed May 2 16:56:30 2018 -0400
+
+    Merge branch 'dev' of https://github.com/Eurybiadan/Metricks into dev
+
+commit e3eaed83a450743ec753d04769a8a8ffcf5ff9b2
+Author: Robert F Cooper <rfcooper@sas.upenn.edu>
+Date:   Wed May 2 16:53:55 2018 -0400
+
+    Added map creator, tweaked coordclip parameters for clarity/maintenance.
+
+commit cc113a5f58a32ab06643f3ed9c9a2cdf3e1fa7f9
+Author: Robert F Cooper <robertfcoop@gmail.com>
+Date:   Thu Apr 26 14:11:16 2018 -0400
+
+    DFT modifications for figure output
+
+commit dc22c77d7ad1a34766846c79f43a07f5bcdcf1f6
+Author: Robert F Cooper <rfcooper@sas.upenn.edu>
+Date:   Mon Apr 9 08:52:06 2018 -0400
+
+    Debugging error methods.
+
+commit 2b53e20671b8d4c3691858b7369612476c923bcd
+Author: Robert F Cooper <rfcooper@sas.upenn.edu>
+Date:   Thu Mar 29 15:45:33 2018 -0400
+
+    -Work on determining the ideal way to assess error in DFT spacing measurements. Beginning with ratio of r^2 from the 1st and 3rd stages of the algorithm.
+
+commit d0fa4b456059ee240fda219ac547da54540ded92
+Author: Robert F Cooper <rfcooper@sas.upenn.edu>
+Date:   Wed Mar 21 08:36:49 2018 -0400
+
+    -Tweaked first stage of FourierFitting to enable better fit to small spacing (near-fovea) datasets
+    -Tested r^2 approaches to fit quality. May not be sensitive enough to fit errors.
+    -Fooled around with more flexible fitting model (full exponential)
+    -Added bootstrapping
+
+commit d7fd2f72e6755dc6dedc8f4cfc2902ddc48304af
+Author: Robert F Cooper <robertfcoop@gmail.com>
+Date:   Wed Feb 14 14:53:52 2018 -0500
+
+    More robustness and stability tweaks.
+    
+    -Linearizes the ICD/DFT relationship.
+    Also added a large vessel masker.
+
+commit 3401498355a21149f040080a223c378aea54d42d
+Author: Robert F Cooper <rfcooper@sas.upenn.edu>
+Date:   Wed Feb 14 11:41:14 2018 -0500
+
+    Tweaks for figure outputs.
+
+commit f623d91e5729d67bfdc279af2eb6fd80d757db95
+Merge: 6720e4f 2c1793a
+Author: Robert F Cooper <rfcooper@sas.upenn.edu>
+Date:   Wed Feb 14 11:34:20 2018 -0500
+
+    Merge branch 'dev' of https://github.com/Eurybiadan/Metricks into dev
+    
+    # Conflicts:
+    #       DFT-Based-Spacing[UNVALIDATED]/fourierFit.m
+    #       DFT-Based-Spacing[UNVALIDATED]/fourierFit_v2.m
+
+commit 6720e4ffb6394d929add23ece3ab8a7badcf7672
+Author: Robert F Cooper <rfcooper@sas.upenn.edu>
+Date:   Wed Feb 14 11:08:29 2018 -0500
+
+    Tweaks for figure output.
+
+commit 2c1793a112d79352fba8b50e00cd39d4fdcb07ba
+Author: DESKTOP-GFAOF7T\Robert F Cooper <robertfcoop@gmail.com>
+Date:   Thu Feb 8 15:01:21 2018 -0500
+
+    Added bootstrapping test for DFT parameters.
+    
+    Parameter "a" in power law fit is non-gaussian; will need to determine best course of action....
+
+commit 01cb3891e3be435f61a4b138655eb62070d64b51
+Author: Robert F Cooper <robertfcoop@gmail.com>
+Date:   Fri Dec 15 15:25:16 2017 -0500
+
+    Robustness tweaks to the fitting parameters
+    
+    Better handle low-SNR
+
+commit 015a6a225061725a3383ee2c49b70f15378b0f7b
+Author: Robert F Cooper <Eurybiadan@users.noreply.github.com>
+Date:   Fri Dec 15 08:56:25 2017 -0500
+
+    Update README.md
+    
+    Added a description of how image cropping works, courtesy of Emily Patterson's excellent description.
+
+commit bd4cfe0b0481d62c73e282a364a83231755ee54b
+Author: Robert F Cooper <robertfcoop@gmail.com>
+Date:   Thu Dec 14 10:34:10 2017 -0500
+
+    Tweaks to DFT robustness
+    
+    - Exclusion criterion for ROIs is a little more strict, leading to less "guessing" on thick vessels.
+    - Fixed bug in pseudopolar code causing the polar domain to be centered on the wrong coordinates
+    - Relaxed fit-finding cutoffs in fourierFit_v2
+    - Added auto-density/spacing outputs to Montage_DFT_Analysis
+
+commit 0b440fc1bbb59d909c2dc317c2d8ae2d0f851344
+Author: Robert F Cooper <robertfcoop@gmail.com>
+Date:   Mon Dec 4 15:01:18 2017 -0500
+
+    Moved Cone Counting to Confide.
+
+commit fcb46e01e6b536d262f077c9133f06e1faf5a0f8
+Author: Robert F Cooper <robertfcoop@gmail.com>
+Date:   Mon Dec 4 14:47:10 2017 -0500
+
+    Migrated cone counting to its own repository.
+
+commit 49ab08bc6fd39004bb9c1e5fc324128411fcbbc2
+Author: Robert F Cooper <robertfcoop@gmail.com>
+Date:   Fri Nov 17 14:46:49 2017 -0500
+
+    The answer to the universe and everything is 42.
+
+commit d0c6c8d2ae5aaafc2a23093fa5b108fd7faf8e9a
+Author: DESKTOP-GFAOF7T\Robert F Cooper <robertfcoop@gmail.com>
+Date:   Wed Nov 15 22:25:22 2017 -0500
+
+    DFT Distance is now calcuable over entire montages (as generated from Min's algorithm).
+
+commit d0e6e7bda3ca59b8bf052b91d44184aef4bae976
+Author: Robert F Cooper <robertfcoop@gmail.com>
+Date:   Wed Oct 25 11:15:44 2017 -0400
+
+    Tweaks to the fourierfit algorithm- now works off of derivatives, not explicit peaks. Better handles flat peaks than previous code.
+
+commit 2090619b2fa4adafcc5b1083a919136326a21346
+Author: Robert F Cooper <robertfcoop@gmail.com>
+Date:   Tue Oct 24 08:57:01 2017 -0400
+
+    Fourier Spacing algorithm tweaks
+    
+    -Made more robust to a wider range of conditions.
+
+commit 177d72c29ca006f5fb1715c7a908aaa53359ae0f
+Merge: c335bec 11a6321
+Author: Robert F Cooper <rfcooper@sas.upenn.edu>
+Date:   Mon Oct 9 09:10:40 2017 -0400
+
+    Merge remote-tracking branch 'origin/master'
+
+commit c335beca5d32341ead3e063557584f5ee1a50a72
+Author: Robert F Cooper <rfcooper@sas.upenn.edu>
+Date:   Wed Oct 4 12:54:22 2017 -0400
+
+    Bug fixes for Mosaic Metrics
+    
+    - Fixed poorly handled uncorrected values
+    - Fixed allowing multiple region sizes to be analyzed per run.
+
+commit 11a632180a2e26930f440a2dd9bdea01db4246ff
+Author: Robert F Cooper <rfcooper@sas.upenn.edu>
+Date:   Wed Oct 4 12:54:22 2017 -0400
+
+    Bug fixes for Mosaic Metrics
+    
+    - Fixed poorly handled uncorrected values
+    - Fixed allowing multiple region sizes to be analyzed per run.
+
+commit a7394de48f4e386c6194a5a19f5aae7a22b35ab5
+Author: Robert F Cooper <rfcooper@sas.upenn.edu>
+Date:   Wed Oct 4 11:52:53 2017 -0400
+
+    Added check for txt as well as csv coordinate files.
+
+commit 905105a1e9a54b52bc0ff3aa6b77aadae0e1ddef
+Merge: f7cafd4 0cc45c6
+Author: Robert F Cooper <rfcooper@sas.upenn.edu>
+Date:   Wed Oct 4 08:41:29 2017 -0400
+
+    Merge remote-tracking branch 'origin/master'
+
+commit f7cafd48225dc1da5f70437e5fc69c5bde01c97c
+Author: Robert F Cooper <rfcooper@sas.upenn.edu>
+Date:   Wed Oct 4 08:41:24 2017 -0400
+
+    Auto-convert to pixel spacing
+    
+    Output of fit_fourier_spacing is now the calculated spacing in pixels.
+
+commit 0cc45c62970563d004a2c531622106450799f475
+Author: Robert F Cooper <Eurybiadan@users.noreply.github.com>
+Date:   Mon Oct 2 13:04:52 2017 -0400
+
+    Delete Coordinate_Mosaic_Metrics.m~
+    
+    Removed redundant file.
+
+commit 194a59afb74d963307690034a1cf37b49a25b877
+Author: Robert F Cooper <Eurybiadan@users.noreply.github.com>
+Date:   Mon Oct 2 11:43:16 2017 -0400
+
+    Fixed a typo.
+
+commit 43c115e5f0bab2d82d4bc5a1e0634f0b21b64f70
+Author: Robert F Cooper <rfcooper@sas.upenn.edu>
+Date:   Mon Oct 2 11:33:33 2017 -0400
+
+    Tweaks to startup behavior
+    
+    - Added arcminute scale option
+    - Added levenstein-based string similarity comparison for lookup tables.
+    - Re-added unbound analyses, just in case someone needs them.
+
+commit 9f16af4dc7db112f9e81ecf3db6acdeb317a7e87
+Author: Robert F Cooper <Eurybiadan@users.noreply.github.com>
+Date:   Mon Oct 2 11:20:42 2017 -0400
+
+    Updated Readme.
+
+commit d3b08131994d835428f7151b8b1fcadebc7fe4a1
+Author: Robert F Cooper <rfcooper@sas.upenn.edu>
+Date:   Fri Sep 29 15:40:41 2017 -0400
+
+    Added DFT Spacing
+    
+    -Made tweaks to existing algorithm, attempting to make more robust.
+
+commit e50ad2c85dbba0b8bc2af74271a3ba5858460a31
+Author: Robert F Cooper <rfcooper@sas.upenn.edu>
+Date:   Fri Sep 29 12:29:16 2017 -0400
+
+    Initial Commit of code
+    
+    Added:
+    - (Former) Coordinate Statistics Calculator
+    - Mosaic Orientation analyses
+    - DFT-based spacing work (using fitting, not the original work)
+    - Cone counting Distribution Edition version 0.36
+
+commit 7df6f21a3faef5047ac00b2e314abbec2e78d76c
+Author: Robert F Cooper <rfcooper@sas.upenn.edu>
+Date:   Fri Sep 29 10:00:36 2017 -0400
+
+    Initial commit
