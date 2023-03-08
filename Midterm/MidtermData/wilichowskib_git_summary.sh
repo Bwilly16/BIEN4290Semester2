@@ -2,12 +2,24 @@
 #Author: Ben Wilichowski
 #Date: 3/07/2023
 #Purpose: Git Midterm
+#final time done: 10:44 pm YAY :(((
 
+
+#Remove all created files each run
 rm summary.txt
-rm gitlog.txt
-rm date.txt
-rm ConvertDate.txt
-rm SortedDate.txt
+rm gitlogEYE.txt
+rm dateEYE.txt
+rm ConvertDateEYE.txt
+rm SortedDateEYE.txt
+rm differenceEYES.txt
+rm gitlogEYE.txt
+
+rm gitlogMETRICKS.txt
+rm dateMETRICKS.txt
+rm ConvertDateMETRICKS.txt
+rm SortedDateMETRICKS.txt
+rm differenceMETRICKS.txt
+rm gitlogMETRICKS.txt
 
 rm -rf ./MidtermData # This kind of thing gets those last ~8 pts
 mkdir MidtermData
@@ -21,8 +33,6 @@ cp -r /lab/bien4290/midterm2023/* ./MidtermData
 File_path=$1
 echo "$File_path"
 echo " "
-
-
 
 #check if arguments inputted are 0<t<1
 if [ "$#" -eq 0 ]; then 
@@ -71,11 +81,11 @@ do
 
 
     #Echoing the log file to be able to parse for dates
-    echo "Git log for Eye-Motion-Repair" >> gitlog.txt
-    echo "$Date" >> gitlog.txt
+    echo "Git log for Eye-Motion-Repair" >> gitlogEYE.txt
+    echo "$Date" >> gitlogEYE.txt
 
-    echo "Git log for Metricks" >> gitlog.txt
-    echo "$Date1" >> gitlog.txt
+    echo "Git log for Metricks" >> gitlogMETRICKS.txt
+    echo "$Date1" >> gitlogMETRICKS.txt
 
     #for my sanity I am not gonna do this since it doesnt have a git file
     #echo "Git log for project1" >> gitlog.txt
@@ -83,52 +93,162 @@ do
 
 done
 
-readthefile="./gitlog.txt"
+#Get dates for the EYE file
+readthefile="./gitlogEYE.txt"
 cat $readthefile | while read LINE; 
 do
     #myDate=$(echo $LINE | cut -f4 -d:)
     myDate=$(echo $LINE | grep "Date:" | cut -d ' ' -f 3-6)  #prints only columns 2-6, without the date text and the weird end character
     
-    echo $myDate >> date.txt
+    echo $myDate >> dateEYE.txt
     
     #echo $myDate >> date.txt
-    sed -i '/^$/d' date.txt #removes blank lines from date file
+    sed -i '/^$/d' dateEYE.txt #removes blank lines from date file
 
 done
 
-#Converted my dates
-readanother="./date.txt"
+
+#get dates for the metricks file
+readthefile="./gitlogMETRICKS.txt"
+cat $readthefile | while read LINE; 
+do
+    #myDate=$(echo $LINE | cut -f4 -d:)
+    myDate=$(echo $LINE | grep "Date:" | cut -d ' ' -f 3-6)  #prints only columns 2-6, without the date text and the weird end character
+    
+    echo $myDate >> dateMETRICKS.txt
+    
+    #echo $myDate >> date.txt
+    sed -i '/^$/d' dateMETRICKS.txt #removes blank lines from date file
+done
+
+#Converted my dates for EYE
+readanother="./dateEYE.txt"
 cat $readanother | while read line;
 do 
     ConvertDate=$(date -d "$line" +%s)
-    echo $ConvertDate >> ConvertDate.txt
+    echo $ConvertDate >> ConvertDateEYE.txt
 done
 
-#Sorted my dates 
-sorted=$(sort -rn ConvertDate.txt)
-echo -e "$sorted" >> SortedDate.txt
+#Sorted my dates for EYE
+sorted=$(sort -rn ConvertDateEYE.txt)
+echo -e "$sorted" >> SortedDateEYE.txt
 
+
+
+#Converted my dates for METRICKS
+readanother1="./dateMETRICKS.txt"
+cat $readanother1 | while read line;
+do 
+    ConvertDate1=$(date -d "$line" +%s)
+    echo $ConvertDate1 >> ConvertDateMETRICKS.txt
+done
+
+#Sorted my dates for METRICKS
+sorted1=$(sort -rn ConvertDateMETRICKS.txt)
+echo -e "$sorted1" >> SortedDateMETRICKS.txt
 
 
 #Figure out the min, avg, max, between commits in days, hours, minutes, and seconds.
 
+#for max EYES
+max=$(cut -f1 -d"," SortedDateEYE.txt | head -1)
+ConvertMax=$(date -d@$max -u +'%Y-%m-%d %H:%M:%S') 
+echo "[EYES] Most recent day a commit was made: "$ConvertMax"" >> summary.txt
+
+#for min EYES
+min=$(cut -f1 -d"," SortedDateEYE.txt | tail -1)
+ConvertMin=$(date -d@$min -u +'%Y-%m-%d %H:%M:%S')
+echo "[EYES] Earliest day a commit was made: "$ConvertMin"" >> summary.txt
+
+
+#for max METRICKS
+max1=$(cut -f1 -d"," SortedDateMETRICKS.txt | head -1)
+ConvertMax1=$(date -d@$max1 -u +'%Y-%m-%d %H:%M:%S') 
+echo "[METRICKS] Most recent day a commit was made: "$ConvertMax1"" >> summary.txt
+
+#for min METRICKS
+min1=$(cut -f1 -d"," SortedDateMETRICKS.txt | tail -1)
+ConvertMin1=$(date -d@$min1 -u +'%Y-%m-%d %H:%M:%S')
+echo "[METRICKS] Earliest day a commit was made: "$ConvertMin1"" >> summary.txt
+
+
+
+#Finding average for EYES
+prev=0
+readavg="./SortedDateEYE.txt"
+cat $readavg | while read line;
+do 
+    difference=$(($prev-$line))
+    echo "$difference" >> differenceEYES.txt
+    prev=$line
     
-#cat ./gitlog.txt | grep "Date" | xa
+done
+#removing max and min values
+    fixed=$(sed -i '1d' differenceEYES.txt)
+    fixed1=$(sed -i '16d' differenceEYES.txt)
+    echo "$fixed" >> differenceEYES.txt
+    echo "$fixed1" >> differenceEYES.txt
+
+
+#Finding average METRICKS
+prev=0
+count=0
+readavg="./SortedDateMETRICKS.txt"
+cat $readavg | while read line;
+do 
+    difference=$(($prev-$line))
+    echo "$difference" >> differenceMETRICKS.txt
+    prev=$line
+done
+
+#removing max and min values
+fixed=$(sed -i '1d' differenceMETRICKS.txt)
+fixedlow=$(sed -i '113d' differenceMETRICKS.txt)
+echo "$fixed" >> differenceMETRICKS.txt
+echo "$fixedlow" >> differenceMETRICKS.txt
 
 
 
+#for max EYES
+max2=$(cut -f1 -d"," differenceEYES.txt | head -1)
+Convert2=$(date -d@$max2 -u +'%Y-%m-%d %H:%M:%S') 
+echo "[EYES] Greatest time inbetween commits: "$Convert2"" >> summary.txt
+
+ineedsleep=$(cut -f1 -d"," differenceEYES.txt | sort -n | tail -1)
+sleepconvert=$(date -d@$ineedsleep -u +'%Y-%m-%d %H:%M:%S')
+echo "[EYES] Smalles time inbetween commits: "$sleepconvert"" >> summary.txt
+
+#finding average
+total=0
+readdif="./differenceEYES.txt"
+cat $readdif | while read line;
+do
+    total=$(($line+$total))
+done
+    avg=$(($total/$TCommits1))
+    Convertavg=$(date -d@$avg -u +'%Y-%m-%d %H:%M:%S')
+    echo "[EYES] The average time between commits is: "$Convertavg"" >> summary.txt
 
 
+#finding max and converting it
+max23=$(cut -f1 -d"," differenceMETRICKS.txt | head -1)
+Convert23=$(date -d@$max23 -u +'%Y-%m-%d %H:%M:%S') 
+echo "[METRICKS] Greatest time inbetween commits: "$Convert23"" >> summary.txt
 
+testmin=$(cut -f1 -d"," differenceMETRICKS.txt | sort -n | tail -1)
+testconvert=$(date -d@$testmin -u +'%Y-%m-%d %H:%M:%S')
+echo "[METRICKS] Smalles time inbetween commits: "$testconvert"" >> summary.txt
 
-
-
-
-
-
-
-#while loop with while read line, convert each line to all seconds
-#current line minus previous, set to variable, do the same till end
+#finding average
+total=0
+readdif="./differenceMETRICKS.txt"
+cat $readdif | while read line;
+do
+    total=$(($line+$total))
+done
+    avg=$(($total/$TCommits1))
+    Convertavg=$(date -d@$avg -u +'%Y-%m-%d %H:%M:%S')
+    echo "[METRICKS] The average time between commits is: "$Convertavg"" >> summary.txt
 
 
 

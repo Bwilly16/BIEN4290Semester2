@@ -1,0 +1,117 @@
+Git log for Eye-Motion-Repair
+commit 7cd5cb72bd5e16ebc5bc1bdc8d2bf91d94990068
+Author: Robert F Cooper <robertfcoop@gmail.com>
+Date:   Fri Jan 13 15:01:47 2023 -0600
+
+    Added dewarping and torstion removal for the SabLab.
+
+commit adafb2fc6c5a2e04ac8cf593549334f9407d40c7
+Author: Robert F Cooper <robertfcoop@gmail.com>
+Date:   Tue Nov 15 22:40:05 2022 -0600
+
+    First stab at doing a refresh of the eye motion repair scripts- for multiple labs.
+    Major concerns about the actual outputs of the SR_AVIs from Demotion.
+
+commit 65b44786236230a801bd706ee82c1463b5eb8886
+Merge: b5586b7 c2effc6
+Author: Robert F Cooper <Eurybiadan@users.noreply.github.com>
+Date:   Tue Nov 15 19:04:12 2022 -0600
+
+    Merge pull request #2 from waivs/main
+    
+    Updates for python3.x
+
+commit c2effc67c52379e6075bcac41b999222729b5945
+Author: J.D. Rogers <rogersjd@gmail.com>
+Date:   Tue Nov 15 16:53:12 2022 -0600
+
+    Normalize all the line endings
+
+commit 9eb99e8e90832613e98f36f520a857c68f5c40bc
+Author: J.D. Rogers <rogersjd@gmail.com>
+Date:   Tue Nov 15 14:07:58 2022 -0600
+
+    updated to work with python3.x, tested on python3.9 --JDR
+
+commit b5586b7f34c9d37f0922cfe533d8009736a60da2
+Author: Robert F Cooper <robertfcoop@gmail.com>
+Date:   Thu Mar 21 15:04:29 2019 -0400
+
+    Added code to gently smooth the output vectors
+    
+    This handles random jumps in the motion estimations better.
+
+commit a6c3247a45e9740f29eaf4fad079ffe74c1e57b1
+Author: Robert F Cooper <robertfcoop@gmail.com>
+Date:   Thu Mar 21 13:46:33 2019 -0400
+
+    Auto stash before merge of "master" and "origin/master"
+
+commit 7f602fba619e635e23495fcaae49850d157b9326
+Author: Robert F Cooper <robertfcoop@gmail.com>
+Date:   Thu Feb 14 11:50:03 2019 -0500
+
+    Actually add full fix. Oops.
+
+commit 3142b17eac1e2482fbd462f77d607a19c0e12ba8
+Author: Robert F Cooper <robertfcoop@gmail.com>
+Date:   Thu Feb 14 09:44:48 2019 -0500
+
+    Added ability to skip the desinusoiding.
+
+commit 43add51c120e57e0425c93f34c70dda27bfac819
+Author: Robert F Cooper <robertfcoop@gmail.com>
+Date:   Wed Aug 1 09:42:07 2018 -0400
+
+    Fixed error in crop region calculation, migration to pycharm
+    
+    -Previously, largest slow axis and smallest slow axis were calculated under the assumption of a single block of translation data. Given that one row of the framemotion matrix can contain several chunks of translation data from a single with no assumption about their order (they are stored in dicts), the whole matrix is scanned for min and max values.
+
+commit 99a5dbe1c041020a82acd54c16833af892192ce0
+Author: Robert F Cooper <robertfcoop@gmail.com>
+Date:   Thu Jul 19 15:37:27 2018 -0400
+
+    Removed old debug messages.
+
+commit 1fe077e06d04fbcc62a06ebb2498ddc95539ba07
+Author: Robert F Cooper <robertfcoop@gmail.com>
+Date:   Fri Jul 13 09:45:39 2018 -0400
+
+    Bug fixes for the piecewise method of repairing distortion.
+
+commit b030c07f015fbee5c02a08094afd6568caf40b45
+Author: Robert F Cooper <robertfcoop@gmail.com>
+Date:   Fri Jul 13 08:29:50 2018 -0400
+
+    Updated dmp motion info extraction to use more for any given frame
+    
+    -Improved on piecewise method generalizability
+    -Improved ROI size handling for multiple num_frames per single dmp
+
+commit 1f0cae4bb01918144e3be9c0ec27d1795ff4e87a
+Author: Robert F Cooper <robertfcoop@gmail.com>
+Date:   Thu Jul 12 10:15:00 2018 -0400
+
+    Added transparency and no-selection-required densinusoid files
+    
+    Instead of having black regions where the image was adjusted, EMR now automatically makes those regions transparent. This will be useful when creating montages with these files, as the edges of repaired images will no longer look odd.
+    
+    EMR no longer requires you to pick the the desinusoid file. This means you can run the repair process on a mixed folder of 1.75, or 1.00 FOV files all at once, instead of separating them all out.
+
+commit f49d377bb2c9d5fe3dfcf74de00888b001aa7e60
+Author: Robert F Cooper <Eurybiadan@users.noreply.github.com>
+Date:   Wed May 23 10:57:41 2018 -0400
+
+    Quick title update for the readme.
+
+commit 9e12f4501860e1f2dc367f0d57fb49473dc695ac
+Author: Robert F Cooper <rfcooper@sas.upenn.edu>
+Date:   Wed May 23 10:50:34 2018 -0400
+
+    Initial commit of actual code. Added GPL 3.0 license, tweaked comments to be more informative.
+
+commit 50344f63440933466d4d83da4829df345d1e8531
+Author: Robert F Cooper <Eurybiadan@users.noreply.github.com>
+Date:   Wed May 23 09:55:51 2018 -0400
+
+    Initial commit
