@@ -3,6 +3,7 @@
 #Date: 3/07/2023
 #Purpose: Git Midterm
 
+rm summary.txt
 rm -rf ./MidtermData # This kind of thing gets those last ~8 pts
 mkdir MidtermData
 cp -r /lab/bien4290/midterm2023/* ./MidtermData
@@ -31,31 +32,38 @@ fi
 for files in $(ls ./MidtermData)
 do  
     if [[ "$files" == "Eye-Motion-Repair" ]]; then
-        echo "Eye match"
+        #echo "Eye match"
         cd Eye-Motion-Repair
+        #if git file exitst
         TCommits=$(git rev-list --all --count)
-        echo "Total commits in Eye-Motion-Repair: $TCommits"
-    fi
-
-    if [[ "$files" == "Metricks_OCVL" ]]; then
-        echo "Met match"
+        #else echo git file does not exist
+        
+        
+    elif [[ "$files" == "Metricks_OCVL" ]]; then
+        #echo "Met match"
         cd ../Metricks_OCVL
-        TCommits=$(git rev-list --all --count)
-        echo "Total commits in Metricks_OCVL: $TCommits"
-    fi
+        #if git file exists
+        TCommits1=$(git rev-list --all --count)
+        #else echo git file does not exist
+        
 
-    if [[ "$files" == "project1" ]]; then
-        echo "proj match"
+    elif [[ "$files" == "project1" ]]; then
+        #echo "proj match"
         cd ../project1
-        TCommits=$(git rev-list --all --count)
-        echo "Total commits in project1: $TCommits"
-
+        #if git file exists
+        TCommits2=$(git rev-list --all --count)
+        cd ..  
+        #else echo git file does not exist
     fi
+
+    #Echo out answers to summary file (part c)
+    echo "Total commits in Eye-Motion-Repair: $TCommits" >> summary.txt
+    echo "Total commits in Metricks_OCVL: $TCommits1" >> summary.txt
+    echo "Total commits in project1: $TCommits2" >> summary.txt
 done
 
 
-#TCommits=$(git rev-list --all --count)
-#echo $TCommits
+
 
 
 
