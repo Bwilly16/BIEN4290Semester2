@@ -6,6 +6,9 @@
 rm summary.txt
 rm gitlog.txt
 rm date.txt
+rm ConvertDate.txt
+rm SortedDate.txt
+
 rm -rf ./MidtermData # This kind of thing gets those last ~8 pts
 mkdir MidtermData
 cp -r /lab/bien4290/midterm2023/* ./MidtermData
@@ -84,15 +87,26 @@ readthefile="./gitlog.txt"
 cat $readthefile | while read LINE; 
 do
     #myDate=$(echo $LINE | cut -f4 -d:)
-    myDate=$(echo $LINE | grep "Date:" | cut -d ' ' -f 2-6)  #prints only columns 2-6, without the date text and the weird end character
+    myDate=$(echo $LINE | grep "Date:" | cut -d ' ' -f 3-6)  #prints only columns 2-6, without the date text and the weird end character
+    
     echo $myDate >> date.txt
+    
+    #echo $myDate >> date.txt
     sed -i '/^$/d' date.txt #removes blank lines from date file
 
 done
 
+#Converted my dates
+readanother="./date.txt"
+cat $readanother | while read line;
+do 
+    ConvertDate=$(date -d "$line" +%s)
+    echo $ConvertDate >> ConvertDate.txt
+done
 
-
-
+#Sorted my dates 
+sorted=$(sort -rn ConvertDate.txt)
+echo -e "$sorted" >> SortedDate.txt
 
 
 
