@@ -12,14 +12,12 @@ rm dateEYE.txt
 rm ConvertDateEYE.txt
 rm SortedDateEYE.txt
 rm differenceEYES.txt
-rm gitlogEYE.txt
 
 rm gitlogMETRICKS.txt
 rm dateMETRICKS.txt
 rm ConvertDateMETRICKS.txt
 rm SortedDateMETRICKS.txt
 rm differenceMETRICKS.txt
-rm gitlogMETRICKS.txt
 
 rm -rf ./MidtermData # This kind of thing gets those last ~8 pts
 mkdir MidtermData
@@ -163,6 +161,7 @@ echo "[EYES] Earliest day a commit was made: "$ConvertMin"" >> summary.txt
 
 #for max METRICKS
 max1=$(cut -f1 -d"," SortedDateMETRICKS.txt | head -1)
+#ConvertMax1=$(date -d@$max1 -u + '%H:%M:%S') 
 ConvertMax1=$(date -d@$max1 -u +'%Y-%m-%d %H:%M:%S') 
 echo "[METRICKS] Most recent day a commit was made: "$ConvertMax1"" >> summary.txt
 
@@ -216,17 +215,18 @@ echo "[EYES] Greatest time inbetween commits: "$Convert2"" >> summary.txt
 
 ineedsleep=$(cut -f1 -d"," differenceEYES.txt | sort -n | tail -1)
 sleepconvert=$(date -d@$ineedsleep -u +'%Y-%m-%d %H:%M:%S')
-echo "[EYES] Smalles time inbetween commits: "$sleepconvert"" >> summary.txt
+echo "[EYES] Smallest time inbetween commits: "$sleepconvert"" >> summary.txt
 
 #finding average
 total=0
 readdif="./differenceEYES.txt"
 cat $readdif | while read line;
 do
-    total=$(($line+$total))
+    total=$(($line+$total))  
 done
     avg=$(($total/$TCommits1))
     Convertavg=$(date -d@$avg -u +'%Y-%m-%d %H:%M:%S')
+    echo "[EYES] The average time between commits is: "$Convertavg"" 
     echo "[EYES] The average time between commits is: "$Convertavg"" >> summary.txt
 
 
