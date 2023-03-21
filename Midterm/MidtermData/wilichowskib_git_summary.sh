@@ -210,11 +210,11 @@ echo "$fixedlow" >> differenceMETRICKS.txt
 
 #for max EYES
 max2=$(cut -f1 -d"," differenceEYES.txt | head -1)
-Convert2=$(date -d@$max2 -u +'%Y-%m-%d %H:%M:%S') 
+Convert2=$(date -d@$max2 -u +%d:%H:%M:%S) 
 echo "[EYES] Greatest time inbetween commits: "$Convert2"" >> summary.txt
 
 ineedsleep=$(cut -f1 -d"," differenceEYES.txt | sort -n | tail -1)
-sleepconvert=$(date -d@$ineedsleep -u +'%Y-%m-%d %H:%M:%S')
+sleepconvert=$(date -d@$ineedsleep -u +%d:%H:%M:%S)
 echo "[EYES] Smallest time inbetween commits: "$sleepconvert"" >> summary.txt
 
 #finding average
@@ -225,18 +225,18 @@ do
     total=$(($line+$total))  
 done
     avg=$(($total/$TCommits1))
-    Convertavg=$(date -d@$avg -u +'%Y-%m-%d %H:%M:%S')
+    Convertavg=$(date -d@$avg -u +%d:%H:%M:%S)
     echo "[EYES] The average time between commits is: "$Convertavg"" 
     echo "[EYES] The average time between commits is: "$Convertavg"" >> summary.txt
 
 
 #finding max and converting it
 max23=$(cut -f1 -d"," differenceMETRICKS.txt | head -1)
-Convert23=$(date -d@$max23 -u +'%Y-%m-%d %H:%M:%S') 
+Convert23=$(date -d@$max23 -u +%d:%H:%M:%S) 
 echo "[METRICKS] Greatest time inbetween commits: "$Convert23"" >> summary.txt
 
 testmin=$(cut -f1 -d"," differenceMETRICKS.txt | sort -n | tail -1)
-testconvert=$(date -d@$testmin -u +'%Y-%m-%d %H:%M:%S')
+testconvert=$(date -d@$testmin -u +%d:%H:%M:%S)
 echo "[METRICKS] Smalles time inbetween commits: "$testconvert"" >> summary.txt
 
 #finding average
@@ -247,7 +247,7 @@ do
     total=$(($line+$total))
 done
     avg=$(($total/$TCommits1))
-    Convertavg=$(date -d@$avg -u +'%Y-%m-%d %H:%M:%S')
+    Convertavg=$(date -d@$avg -u +%d:%H:%M:%S)
     echo "[METRICKS] The average time between commits is: "$Convertavg"" >> summary.txt
 
 

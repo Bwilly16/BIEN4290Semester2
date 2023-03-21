@@ -1,13 +1,13 @@
 Total commits in Eye-Motion-Repair: 17
 Total commits in Metricks_OCVL: 114
-Total commits in project1: 58
+Total commits in project1: 59
 [EYES] Most recent day a commit was made: 2023-01-13 21:01:47
 [EYES] Earliest day a commit was made: 2018-05-23 14:55:51
 [METRICKS] Most recent day a commit was made: 2023-01-24 17:27:38
 [METRICKS] Earliest day a commit was made: 2017-09-29 15:00:36
-[EYES] Greatest time inbetween commits: 1970-02-28 16:21:42
-[EYES] Smallest time inbetween commits: 1973-08-28 00:03:29
-[EYES] The average time between commits is: 1970-01-01 00:00:00
-[METRICKS] Greatest time inbetween commits: 1970-01-02 00:28:31
-[METRICKS] Smalles time inbetween commits: 1970-11-01 04:33:53
-[METRICKS] The average time between commits is: 1970-01-01 00:00:00
+[EYES] Greatest time inbetween commits: 28:16:21:42
+[EYES] Smallest time inbetween commits: 28:00:03:29
+[EYES] The average time between commits is: 01:00:00:00
+[METRICKS] Greatest time inbetween commits: 02:00:28:31
+[METRICKS] Smalles time inbetween commits: 01:04:33:53
+[METRICKS] The average time between commits is: 01:00:00:00
