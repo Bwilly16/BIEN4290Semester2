@@ -42,7 +42,7 @@ fi
 
 #find total number of commits per file
 #NEED SOME CHECK IF .git file exists, PROJECT1 does NOT have a git
-for files in $(ls ./MidtermData)
+for files in $(ls $File_path)
 do  
     if [[ "$files" == "Eye-Motion-Repair" ]]; then
         #echo "Eye match"
@@ -73,6 +73,9 @@ do
     fi
 
     #Echo out answers to summary file (part c)
+    # echo "Total commits in Eye-Motion-Repair: $TCommits"
+    # echo "Total commits in Metricks_OCVL: $TCommits1"
+    # echo "Total commits in project1: $TCommits2"
     echo "Total commits in Eye-Motion-Repair: $TCommits" >> summary.txt
     echo "Total commits in Metricks_OCVL: $TCommits1" >> summary.txt
     echo "Total commits in project1: $TCommits2" >> summary.txt
@@ -151,11 +154,13 @@ echo -e "$sorted1" >> SortedDateMETRICKS.txt
 #for max EYES
 max=$(cut -f1 -d"," SortedDateEYE.txt | head -1)
 ConvertMax=$(date -d@$max -u +'%Y-%m-%d %H:%M:%S') 
+echo "[EYES] Most recent day a commit was made: "$ConvertMax""
 echo "[EYES] Most recent day a commit was made: "$ConvertMax"" >> summary.txt
 
 #for min EYES
 min=$(cut -f1 -d"," SortedDateEYE.txt | tail -1)
 ConvertMin=$(date -d@$min -u +'%Y-%m-%d %H:%M:%S')
+echo "[EYES] Earliest day a commit was made: "$ConvertMin""
 echo "[EYES] Earliest day a commit was made: "$ConvertMin"" >> summary.txt
 
 
@@ -163,11 +168,13 @@ echo "[EYES] Earliest day a commit was made: "$ConvertMin"" >> summary.txt
 max1=$(cut -f1 -d"," SortedDateMETRICKS.txt | head -1)
 #ConvertMax1=$(date -d@$max1 -u + '%H:%M:%S') 
 ConvertMax1=$(date -d@$max1 -u +'%Y-%m-%d %H:%M:%S') 
+echo "[METRICKS] Most recent day a commit was made: "$ConvertMax1""
 echo "[METRICKS] Most recent day a commit was made: "$ConvertMax1"" >> summary.txt
 
 #for min METRICKS
 min1=$(cut -f1 -d"," SortedDateMETRICKS.txt | tail -1)
 ConvertMin1=$(date -d@$min1 -u +'%Y-%m-%d %H:%M:%S')
+echo "[METRICKS] Earliest day a commit was made: "$ConvertMin1""
 echo "[METRICKS] Earliest day a commit was made: "$ConvertMin1"" >> summary.txt
 
 
@@ -211,10 +218,12 @@ echo "$fixedlow" >> differenceMETRICKS.txt
 #for max EYES
 max2=$(cut -f1 -d"," differenceEYES.txt | head -1)
 Convert2=$(date -d@$max2 -u +%d:%H:%M:%S) 
+echo "[EYES] Greatest time inbetween commits: "$Convert2""
 echo "[EYES] Greatest time inbetween commits: "$Convert2"" >> summary.txt
 
 ineedsleep=$(cut -f1 -d"," differenceEYES.txt | sort -n | tail -1)
 sleepconvert=$(date -d@$ineedsleep -u +%d:%H:%M:%S)
+echo "[EYES] Smallest time inbetween commits: "$sleepconvert""
 echo "[EYES] Smallest time inbetween commits: "$sleepconvert"" >> summary.txt
 
 #finding average
@@ -233,10 +242,12 @@ done
 #finding max and converting it
 max23=$(cut -f1 -d"," differenceMETRICKS.txt | head -1)
 Convert23=$(date -d@$max23 -u +%d:%H:%M:%S) 
+echo "[METRICKS] Greatest time inbetween commits: "$Convert23""
 echo "[METRICKS] Greatest time inbetween commits: "$Convert23"" >> summary.txt
 
 testmin=$(cut -f1 -d"," differenceMETRICKS.txt | sort -n | tail -1)
 testconvert=$(date -d@$testmin -u +%d:%H:%M:%S)
+echo "[METRICKS] Smalles time inbetween commits: "$testconvert""
 echo "[METRICKS] Smalles time inbetween commits: "$testconvert"" >> summary.txt
 
 #finding average
@@ -248,6 +259,7 @@ do
 done
     avg=$(($total/$TCommits1))
     Convertavg=$(date -d@$avg -u +%d:%H:%M:%S)
+     echo "[METRICKS] The average time between commits is: "$Convertavg""
     echo "[METRICKS] The average time between commits is: "$Convertavg"" >> summary.txt
 
 
