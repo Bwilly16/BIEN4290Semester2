@@ -18,6 +18,7 @@ rm dateMETRICKS.txt
 rm ConvertDateMETRICKS.txt
 rm SortedDateMETRICKS.txt
 rm differenceMETRICKS.txt
+rm SORTEDdifferenceMETRICKS.txt
 
 rm -rf ./MidtermData # This kind of thing gets those last ~8 pts
 mkdir MidtermData
@@ -206,12 +207,13 @@ do
     echo "$difference" >> differenceMETRICKS.txt
     prev=$line
 done
+sort -n differenceMETRICKS.txt >> SORTEDdifferenceMETRICKS.txt
 
 #removing max and min values
-fixed=$(sed -i '1d' differenceMETRICKS.txt)
-fixedlow=$(sed -i '113d' differenceMETRICKS.txt)
-echo "$fixed" >> differenceMETRICKS.txt
-echo "$fixedlow" >> differenceMETRICKS.txt
+# fixed=$(sed -i '1d' SORTEDdifferenceMETRICKS.txt)
+# fixedlow=$(sed -i '113d' SORTEDdifferenceMETRICKS.txt)
+# echo "$fixed" >> SORTEDdifferenceMETRICKS.txt
+# echo "$fixedlow" >> SORTEDdifferenceMETRICKS.txt
 
 
 
@@ -240,30 +242,33 @@ done
 
 
 #finding max and converting it
-max23=$(cut -f1 -d"," differenceMETRICKS.txt | head -1)
+
+max23=$(cut -f1 -d"," SORTEDdifferenceMETRICKS.txt | head -1)
+echo "THIS IS THE MIN: $max23"
 Convert23=$(date -d@$max23 -u +%d:%H:%M:%S) 
 echo "[METRICKS] Greatest time inbetween commits: "$Convert23""
-echo "[METRICKS] Greatest time inbetween commits: "$Convert23"" >> summary.txt
+echo "[METRICKS] Smallest time inbetween commits: "$Convert23"" >> summary.txt
 
-testmin=$(cut -f1 -d"," differenceMETRICKS.txt | sort -n | tail -1)
+testmin=$(cut -f1 -d"," SORTEDdifferenceMETRICKS.txt | sort -n | tail -1)
+echo "THIS IS THE MAX: $testmin"
 testconvert=$(date -d@$testmin -u +%d:%H:%M:%S)
-echo "[METRICKS] Smalles time inbetween commits: "$testconvert""
-echo "[METRICKS] Smalles time inbetween commits: "$testconvert"" >> summary.txt
+echo "[METRICKS] Smallest time inbetween commits: "$testconvert""
+echo "[METRICKS] Greatest time inbetween commits: "$testconvert"" >> summary.txt
 
 #finding average
+
+final=0
 total=0
-readdif="./differenceMETRICKS.txt"
-cat $readdif | while read line;
+readdif="./SORTEDdifferenceMETRICKS.txt"
+while read line;
 do
-    total=$(($line+$total))
-done
-    avg=$(($total/$TCommits1))
+    ((total=$line+$total))
+    ((final=$total+$final))
+    
+done < $readdif
+echo $total
+    ((avg=$final/$TCommits1))
+    echo "average $avg"
     Convertavg=$(date -d@$avg -u +%d:%H:%M:%S)
      echo "[METRICKS] The average time between commits is: "$Convertavg""
     echo "[METRICKS] The average time between commits is: "$Convertavg"" >> summary.txt
-
-
-
-
-
-
