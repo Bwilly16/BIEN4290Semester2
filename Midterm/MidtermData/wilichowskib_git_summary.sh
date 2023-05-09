@@ -6,23 +6,11 @@
 
 
 #Remove all created files each run
-rm summary.txt
-rm gitlogEYE.txt
-rm dateEYE.txt
-rm ConvertDateEYE.txt
-rm SortedDateEYE.txt
-rm differenceEYES.txt
-
-rm gitlogMETRICKS.txt
-rm dateMETRICKS.txt
-rm ConvertDateMETRICKS.txt
-rm SortedDateMETRICKS.txt
-rm differenceMETRICKS.txt
-rm SORTEDdifferenceMETRICKS.txt
+rm *.txt
 
 rm -rf ./MidtermData # This kind of thing gets those last ~8 pts
 mkdir MidtermData
-cp -r /lab/bien4290/midterm2023/* ./MidtermData
+cp -r /lab/bien4290/midterm2023/* 
 
 
 
@@ -39,6 +27,8 @@ if [ "$#" -eq 0 ]; then
 elif [ "$#" -gt 1 ]; then
     echo "Bro, thats too many arguments"
 fi
+
+
 
 
 #find total number of commits per file
@@ -74,12 +64,14 @@ do
     fi
 
     #Echo out answers to summary file (part c)
-    # echo "Total commits in Eye-Motion-Repair: $TCommits"
-    # echo "Total commits in Metricks_OCVL: $TCommits1"
-    # echo "Total commits in project1: $TCommits2"
+    
     echo "Total commits in Eye-Motion-Repair: $TCommits" >> summary.txt
     echo "Total commits in Metricks_OCVL: $TCommits1" >> summary.txt
     echo "Total commits in project1: $TCommits2" >> summary.txt
+
+    # echo "Total commits in Eye-Motion-Repair: $TCommits"
+    # echo "Total commits in Metricks_OCVL: $TCommits1"
+    # echo "Total commits in project1: $TCommits2"
 
 
     #Echoing the log file to be able to parse for dates
@@ -132,7 +124,7 @@ do
 done
 
 #Sorted my dates for EYE
-sorted=$(sort -rn ConvertDateEYE.txt)
+sorted=$(sort -n ConvertDateEYE.txt)
 echo -e "$sorted" >> SortedDateEYE.txt
 
 
@@ -146,129 +138,121 @@ do
 done
 
 #Sorted my dates for METRICKS
-sorted1=$(sort -rn ConvertDateMETRICKS.txt)
+sorted1=$(sort -n ConvertDateMETRICKS.txt)
 echo -e "$sorted1" >> SortedDateMETRICKS.txt
 
 
 #Figure out the min, avg, max, between commits in days, hours, minutes, and seconds.
 
 #for max EYES
-max=$(cut -f1 -d"," SortedDateEYE.txt | head -1)
+max=$(cut -f1 -d":" SortedDateEYE.txt | sort -nr | head -1)
 ConvertMax=$(date -d@$max -u +'%Y-%m-%d %H:%M:%S') 
 echo "[EYES] Most recent day a commit was made: "$ConvertMax""
 echo "[EYES] Most recent day a commit was made: "$ConvertMax"" >> summary.txt
 
 #for min EYES
-min=$(cut -f1 -d"," SortedDateEYE.txt | tail -1)
+min=$(cut -f1 -d":" SortedDateEYE.txt | sort -n | head -1)
 ConvertMin=$(date -d@$min -u +'%Y-%m-%d %H:%M:%S')
 echo "[EYES] Earliest day a commit was made: "$ConvertMin""
 echo "[EYES] Earliest day a commit was made: "$ConvertMin"" >> summary.txt
 
 
 #for max METRICKS
-max1=$(cut -f1 -d"," SortedDateMETRICKS.txt | head -1)
+max1=$(cut -f1 -d":" SortedDateMETRICKS.txt | sort -nr | head -1)
 #ConvertMax1=$(date -d@$max1 -u + '%H:%M:%S') 
 ConvertMax1=$(date -d@$max1 -u +'%Y-%m-%d %H:%M:%S') 
 echo "[METRICKS] Most recent day a commit was made: "$ConvertMax1""
 echo "[METRICKS] Most recent day a commit was made: "$ConvertMax1"" >> summary.txt
 
 #for min METRICKS
-min1=$(cut -f1 -d"," SortedDateMETRICKS.txt | tail -1)
+min1=$(cut -f1 -d":" SortedDateMETRICKS.txt | sort -n | head -1)
 ConvertMin1=$(date -d@$min1 -u +'%Y-%m-%d %H:%M:%S')
 echo "[METRICKS] Earliest day a commit was made: "$ConvertMin1""
 echo "[METRICKS] Earliest day a commit was made: "$ConvertMin1"" >> summary.txt
 
-
+#--------------------------------EVERYTHING ABOVE HERE WORKS GOOD--------------------------------#
 
 #Finding average for EYES
 prev=0
 readavg="./SortedDateEYE.txt"
 cat $readavg | while read line;
 do 
-    difference=$(($prev-$line))
+    difference=$(($line-$prev))
     echo "$difference" >> differenceEYES.txt
     prev=$line
     
 done
-#removing max and min values
-    fixed=$(sed -i '1d' differenceEYES.txt)
-    fixed1=$(sed -i '16d' differenceEYES.txt)
-    echo "$fixed" >> differenceEYES.txt
-    echo "$fixed1" >> differenceEYES.txt
+sort -n differenceEYES.txt >> SORTEDdifferenceEYES.txt
+sed -i '1d' SORTEDdifferenceEYES.txt
 
 
 #Finding average METRICKS
 prev=0
-count=0
 readavg="./SortedDateMETRICKS.txt"
 cat $readavg | while read line;
 do 
-    difference=$(($prev-$line))
+    difference=$(($line-$prev))
     echo "$difference" >> differenceMETRICKS.txt
     prev=$line
 done
 sort -n differenceMETRICKS.txt >> SORTEDdifferenceMETRICKS.txt
-
-#removing max and min values
-# fixed=$(sed -i '1d' SORTEDdifferenceMETRICKS.txt)
-# fixedlow=$(sed -i '113d' SORTEDdifferenceMETRICKS.txt)
-# echo "$fixed" >> SORTEDdifferenceMETRICKS.txt
-# echo "$fixedlow" >> SORTEDdifferenceMETRICKS.txt
+sed -i '1d' SORTEDdifferenceMETRICKS.txt
 
 
+#--------------Above here appears to work-----------------#
 
 #for max EYES
-max2=$(cut -f1 -d"," differenceEYES.txt | head -1)
+max2=$(cut -f1 -d":" SORTEDdifferenceEYES.txt | tail -1)
 Convert2=$(date -d@$max2 -u +%d:%H:%M:%S) 
 echo "[EYES] Greatest time inbetween commits: "$Convert2""
 echo "[EYES] Greatest time inbetween commits: "$Convert2"" >> summary.txt
 
-ineedsleep=$(cut -f1 -d"," differenceEYES.txt | sort -n | tail -1)
-sleepconvert=$(date -d@$ineedsleep -u +%d:%H:%M:%S)
+ineedsleep=$(cut -f1 -d":" SORTEDdifferenceEYES.txt | sort -n | head -1)
+sleepconvert=$(date -d@$ineedsleep -u +%H:%M:%S)
 echo "[EYES] Smallest time inbetween commits: "$sleepconvert""
 echo "[EYES] Smallest time inbetween commits: "$sleepconvert"" >> summary.txt
 
 #finding average
 total=0
-readdif="./differenceEYES.txt"
+readdif="./SORTEDdifferenceEYES.txt"
 cat $readdif | while read line;
 do
-    total=$(($line+$total))  
+    total=$(($line+$total))
+    avg=$(($total/$TCommits))  
+    echo "$avg" >> AverageEYES.txt
 done
-    avg=$(($total/$TCommits1))
-    Convertavg=$(date -d@$avg -u +%d:%H:%M:%S)
+    #avg=$(($total/$TCommits1)) #$TCommits1
+    Average=$(cut -f1 -d":" AverageEYES.txt | sort -r | head -1)
+    Convertavg=$(date -d@$Average -u +%d:%H:%M:%S)
     echo "[EYES] The average time between commits is: "$Convertavg"" 
     echo "[EYES] The average time between commits is: "$Convertavg"" >> summary.txt
 
 
 #finding max and converting it
 
-max23=$(cut -f1 -d"," SORTEDdifferenceMETRICKS.txt | head -1)
-echo "THIS IS THE MIN: $max23"
-Convert23=$(date -d@$max23 -u +%d:%H:%M:%S) 
-echo "[METRICKS] Greatest time inbetween commits: "$Convert23""
-echo "[METRICKS] Smallest time inbetween commits: "$Convert23"" >> summary.txt
 
-testmin=$(cut -f1 -d"," SORTEDdifferenceMETRICKS.txt | sort -n | tail -1)
-echo "THIS IS THE MAX: $testmin"
-testconvert=$(date -d@$testmin -u +%d:%H:%M:%S)
+max23=$(cut -f1 -d":" SORTEDdifferenceMETRICKS.txt | tail -1)
+Convert23=$(date -d@$max23 -u +'%d:%H:%M:%S') 
+echo "[METRICKS] Greatest time inbetween commits: "$Convert23""
+echo "[METRICKS] Greatest time inbetween commits: "$Convert23"" >> summary.txt
+
+testmin=$(cut -f1 -d":" SORTEDdifferenceMETRICKS.txt |sort -n | head -1)
+testconvert=$(date -d@$testmin -u +'%H:%M:%S')
 echo "[METRICKS] Smallest time inbetween commits: "$testconvert""
-echo "[METRICKS] Greatest time inbetween commits: "$testconvert"" >> summary.txt
+echo "[METRICKS] Smallest time inbetween commits: "$testconvert"" >> summary.txt
 
 #finding average
 
-final=0
 total=0
 readdif="./SORTEDdifferenceMETRICKS.txt"
-while read line;
+cat $readdif | while read line;
 do
-    ((total=$line+$total))
-    ((final=$total+$final))
+    total=$(($line+$total))
+    avg=$(($total/$TCommits1))  
+    echo "$avg" >> AverageMETRICKS.txt  
     
-done < $readdif
-echo $total
-    ((avg=$final/$TCommits1))
-    echo "average $avg"
-    Convertavg=$(date -d@$avg -u +%d:%H:%M:%S)
-     echo "[METRICKS] The average time between commits is: "$Convertavg""
+done
+    Average=$(cut -f1 -d":" AverageMETRICKS.txt | sort -r | head -1)
+    Convertavg=$(date -d@$Average -u +%d:%H:%M:%S)
+    echo "[METRICKS] The average time between commits is: "$Convertavg""
     echo "[METRICKS] The average time between commits is: "$Convertavg"" >> summary.txt
